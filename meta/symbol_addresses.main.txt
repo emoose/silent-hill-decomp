@@ -154,12 +154,21 @@ _GPU_ResetCallback = 0x8001B0B8; // type:func
 GPU_cw = 0x8001B10C; // type:func
 
 // lib globals
+
+_spu_EVdma = 0x80021354;
+_spu_keystat = 0x80021358;
+_spu_trans_mode = 0x8002135C;
+_spu_rev_flag = 0x80021360;
+_spu_rev_reserve_wa = 0x80021364;
+_spu_rev_offsetaddr = 0x80021368;
+_spu_RQvoice = 0x80021380;
+_spu_RQmask = 0x80021384;
+_spu_env = 0x800213B8;
+_spu_isCalled = 0x800213BC;
 _spu_RXX = 0x800213CC;
+_spu_tsa = 0x800213E4;
 _spu_transMode = 0x800213E8;
 _spu_addrMode = 0x800213EC;
-_spu_tsa = 0x800213E4;
-
-_spu_RQ = 0x800231A0;
 _spu_mem_mode = 0x800213F0;
 _spu_mem_mode_plus = 0x800213F4;
 _spu_mem_mode_unit = 0x800213F8;
@@ -167,33 +176,22 @@ _spu_mem_mode_unitM = 0x800213FC;
 _spu_inTransfer = 0x80021400;
 _spu_transferCallback = 0x80021404;
 _spu_IRQCallback = 0x80021408;
-
 _spu_rev_startaddr = 0x8002142C;
-_spu_rev_flag = 0x80021360;
-_spu_rev_reserve_wa = 0x80021364;
-_spu_rev_offsetaddr = 0x80021368;
 _spu_AllocBlockNum = 0x8002145C;
 _spu_AllocLastNum = 0x80021460;
 _spu_memList = 0x80021464;
-_spu_trans_mode = 0x8002135C;
-_spu_keystat = 0x80021358;
-_spu_RQmask = 0x80021384;
-_spu_RQvoice = 0x80021380;
-_spu_env = 0x800213B8;
 
-_spu_isCalled = 0x800213BC;
-_spu_EVdma = 0x80021354;
+Hcount = 0x800214A0;
 
-__sbss_start__ = 0x80022C90;
-//__bss_end__ = 0x80024B60; // same addr that bodyprog loads into
+__heapbase = 0x80021470;
+__heapsize = 0x80021474;
 _ramsize = 0x80022C6C;
 _stacksize = 0x80022C70;
-__heapsize = 0x80021474;
-__heapbase = 0x80021470;
+__sbss_start__ = 0x80022C90;
+//__bss_end__ = 0x80024B60; // same addr that bodyprog loads into
 __sdata_start__ = 0x80022BB0;
 __ctors_start__ = 0x80010000;
 
-Hcount = 0x800214A0;
 Vcount = 0x800225D0;
 
 CD_cbread = 0x80022620;
@@ -217,5 +215,6 @@ GEnv = 0x80022A60;
 _qin = 0x80022B88;
 _qout = 0x80022B8C;
 
+_spu_RQ = 0x800231A0;
 StMode = 0x800231E8; // unused?
 _que = 0x80023360;
