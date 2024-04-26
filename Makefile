@@ -19,7 +19,7 @@ TARGET_BODYPROG := $(BUILD_DIR)/$(OVERLAY_BODYPROG_NAME)
 # Source Definitions
 
 ASM_DIR_BOOT	:= asm/main asm/main/data
-C_DIR_BOOT		:= src/main
+C_DIR_BOOT		:= src/main src/main/psxsdk/libspu src/main/psxsdk/libsn src/main/psxsdk/libgpu src/main/psxsdk/libetc src/main/psxsdk/libcd src/main/psxsdk/libc src/main/psxsdk/libapi
 BIN_DIR_BOOT	:= assets/main
 
 S_FILES_BOOT	:= $(foreach dir,$(ASM_DIR_BOOT),$(wildcard $(dir)/*.s))

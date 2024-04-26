@@ -35,5 +35,78 @@ segments:
     subsegments:
       - [0x800, data, stringsquestionmark]
       - [0xF70, c, boot]
-      - [0x3780, data, boot]
+      # konami CD library code?
+      - [0x1324, c, cdfs]
+      # psx sdk library code
+      # (dir names from runtime library 4.6, game is likely using something older, later than 4.1 but before 4.6)
+      - [0x29BC, c, psxsdk/libapi/a36] # EnterCriticalSection
+      - [0x29CC, c, psxsdk/libapi/a37] # ExitCriticalSection
+      - [0x29DC, c, psxsdk/libapi/a50] # open
+      - [0x29EC, c, psxsdk/libapi/a52] # read
+      - [0x29FC, c, psxsdk/libapi/a54] # close
+      - [0x2A0C, c, psxsdk/libapi/a08] # OpenEvent
+      - [0x2A1C, c, psxsdk/libapi/a12] # EnableEvent
+      - [0x2A2C, c, psxsdk/libc/c21] # strcat
+      - [0x2A3C, c, psxsdk/libc/c23] # strcmp
+      - [0x2A4C, c, psxsdk/libc/c40] # bzero
+      - [0x2A5C, c, psxsdk/libc/c43] # memset
+      - [0x2A6C, c, psxsdk/libspu/s_i] # SpuInit
+      - [0x2A8C, c, psxsdk/libspu/s_ini] # _SpuInit / SpuStart
+      - [0x2BEC, c, psxsdk/libspu/spu]
+      - [0x372C, c, psxsdk/libapi/a07] # DeliverEvent
+      - [0x373C, c, psxsdk/libc/c63] # printf (TODO)
+      - [0x374C, c, psxsdk/libspu/s_dcb] # _SpuDataCallback
+      - [0x377C, c, psxsdk/libsn/snmain] # __SN_ENTRY_POINT __main __do_global_dtors
+      - [0x38FC, c, psxsdk/libapi/c57] # InitHeap
+      - [0x390C, c, psxsdk/libetc/vsync] # VSync
+      - [0x3B1C, c, psxsdk/libapi/a91] # ChangeClearPAD
+      - [0x3B2C, c, psxsdk/libapi/l10] # ChangeClearRCnt
+      - [0x3B44, c, psxsdk/libc/a63] # puts
+      - [0x3B5C, c, psxsdk/libetc/intr]
+      - [0x4224, c, psxsdk/libapi/c114] # _96_remove
+      - [0x423C, c, psxsdk/libapi/a23] # ReturnFromException
+      - [0x424C, c, psxsdk/libapi/a24] # ResetEntryInt
+      - [0x425C, c, psxsdk/libapi/a25] # HookEntryInt
+      - [0x426C, c, psxsdk/libc/c19] # setjmp
+      - [0x427C, c, psxsdk/libetc/intr_vb] # startIntrVSync
+      - [0x439C, c, psxsdk/libetc/intr_dma] # startIntrDMA
+      - [0x4650, c, psxsdk/libetc/vmode] # GetVideoMode
+      - [0x466C, c, psxsdk/libcd/event] # CdInit
+      - [0x47BC, c, psxsdk/libcd/s_003] # CdStatus
+      - [0x47CC, c, psxsdk/libcd/s_004] # CdMode
+      - [0x47DC, c, psxsdk/libcd/s_005] # CdLastCom
+      - [0x47EC, c, psxsdk/libcd/s_006] # CdLastPos
+      - [0x47F8, c, psxsdk/libcd/s_007] # CdReset
+      - [0x4864, c, psxsdk/libcd/s_008] # CdFlush
+      - [0x4884, c, psxsdk/libcd/s_009] # CdSetDebug
+      - [0x4898, c, psxsdk/libcd/s_010] # CdComstr
+      - [0x48CC, c, psxsdk/libcd/s_011] # CdIntstr
+      - [0x4900, c, psxsdk/libcd/s_012] # CdSync
+      - [0x4920, c, psxsdk/libcd/s_013] # CdReady
+      - [0x4940, c, psxsdk/libcd/s_014] # CdSyncCallback
+      - [0x4954, c, psxsdk/libcd/s_015] # CdReadyCallback
+      - [0x4968, c, psxsdk/libcd/s_016] # CdControl CdControlF CdControlB
+      - [0x4D24, c, psxsdk/libcd/s_020] # CdMix
+      - [0x4D44, c, psxsdk/libcd/s_021] # CdGetSector
+      - [0x4D64, c, psxsdk/libcd/s_022] # CdGetSector2
+      - [0x4D84, c, psxsdk/libcd/s_023] # CdDataCallback
+      - [0x4DA8, c, psxsdk/libcd/s_024] # CdDataSync
+      - [0x4DC8, c, psxsdk/libcd/s_002] # CdIntToPos
+      - [0x4ECC, c, psxsdk/libcd/sys] # CdPosToInt
+      - [0x4F4C, c, psxsdk/libcd/bios_1] # CD_sync CD_ready CD_cw CD_vol CD_flush CD_initvol CD_initintr CD_init CD_datasync CD_set_test_parmnum
+      - [0x66AC, c, psxsdk/libcd/cdr_1] # CdReadBreak CdRead CdReadSync
+      - [0x704C, c, psxsdk/libcd/cdr_2] # CdReadCallback
+      - [0x7060, c, psxsdk/libcd/cdr_3] # CdReadMode
+
+      # todo: some reason part of t00.o gets included in game after t01.o
+      # need to check these in earlier SDK, maybe they were a single file there
+      - [0x707C, c, psxsdk/libgpu/t00] # OpenTIM / ReadTIM (vars)
+      - [0x70F0, c, psxsdk/libgpu/t01] # OpenTMD / ReadTMD (vars)
+      - [0x73D8, c, psxsdk/libgpu/t00x] # rest of t00.o?
+      - [0x74F0, c, psxsdk/libgpu/t01x] # rest of t01.o?
+
+      - [0x88FC, c, psxsdk/libgpu/sys]
+      - [0xB90C, c, psxsdk/libapi/c73] # GPU_cw
+
+      - [0xB91C, data, boot]
   - [0x13FFF]
