@@ -15,9 +15,6 @@ ext_name_p = 0x80021280;
 g_bodyProg_ptr = 0x80010004;
 g_bodyProg = 0x80024B60;
 
-// fix
-func_80013A1C = 0x80013A1C; // type:func
-
 // lib funcs (TODO: find sdk libs used in SH1 and extract funcs per-object)
 __SN_ENTRY_POINT = 0x80012F7C; // type:func
 __main = 0x80013024; // type:func
@@ -36,6 +33,7 @@ SpuInit = 0x8001226C; // type:func
 _SpuInit = 0x8001228C; // type:func
 SpuStart = 0x80012374; // type:func
 _spu_init = 0x800123EC; // type:func
+_spu_FwriteByIO = 0x8001266C; // type:func
 _spu_FiDMA = 0x8001282C; // type:func
 _spu_Fr_ = 0x800128E8; // type:func
 _spu_t = 0x80012990; // type:func
@@ -43,6 +41,10 @@ _spu_Fw = 0x80012C10; // type:func
 _spu_Fr = 0x80012C94; // type:func
 _spu_FsetRXX = 0x80012CF8; // type:func
 _spu_FsetRXXa = 0x80012D3C; // type:func
+_spu_FgetRXXa = 0x80012DE0; // type:func
+_spu_FsetPCR = 0x80012E1C; // type:func
+_spu_FsetDelayW = 0x80012E74; // type:func
+_spu_FsetDelayR = 0x80012E9C; // type:func
 _spu_Fw1ts = 0x80012EC4; // type:func
 DeliverEvent = 0x80012F2C; // type:func
 printf = 0x80012F3C; // type:func
@@ -51,6 +53,7 @@ __main = 0x80013024; // type:func
 __do_global_dtors = 0x80013094; // type:func
 InitHeap = 0x800130FC; // type:func
 VSync = 0x8001310C; // type:func
+v_wait = 0x80013284; // type:func
 ChangeClearPAD = 0x8001331C; // type:func
 ChangeClearRCnt = 0x8001332C; // type:func
 puts = 0x80013344; // type:func
@@ -64,15 +67,32 @@ RestartCallback = 0x80013480; // type:func
 CheckCallback = 0x800134B0; // type:func
 GetIntrMask = 0x800134C0; // type:func
 SetIntrMask = 0x800134D8; // type:func
+startIntr = 0x800134F0; // type:func
+trapIntr = 0x800135C8; // type:func
+setIntr = 0x80013798; // type:func
+stopIntr = 0x800138E0; // type:func
+restartIntr = 0x80013980; // type:func
+memclr_0 = 0x800139F8; // type:func
 _96_remove = 0x80013A24; // type:func
 ReturnFromException = 0x80013A3C; // type:func
 ResetEntryInt = 0x80013A4C; // type:func
 HookEntryInt = 0x80013A5C; // type:func
 setjmp = 0x80013A6C; // type:func
 startIntrVSync = 0x80013A7C; // type:func
+trapIntrVSync = 0x80013AD4; // type:func
+setIntrVSync = 0x80013B40; // type:func
+memclr_1 = 0x80013B6C; // type:func
 startIntrDMA = 0x80013B9C; // type:func
+trapIntrDMA = 0x80013BE8; // type:func
+setIntrDMA = 0x80013D68; // type:func
+memclr_2 = 0x80013E14; // type:func
+SetVideoMode = 0x80013E3C; // type:func
 GetVideoMode = 0x80013E50; // type:func
 CdInit = 0x80013E6C; // type:func
+CdReset2 = 0x80013EFC; // type:func
+def_cbsync = 0x80013F38; // type:func
+def_cbready = 0x80013F60; // type:func
+def_cbread = 0x80013F88; // type:func
 CdStatus = 0x80013FBC; // type:func
 CdMode = 0x80013FCC; // type:func
 CdLastCom = 0x80013FDC; // type:func
@@ -96,6 +116,7 @@ CdDataCallback = 0x80014584; // type:func
 CdDataSync = 0x800145A8; // type:func
 CdIntToPos = 0x800145C8; // type:func
 CdPosToInt = 0x800146CC; // type:func
+getintr = 0x8001474C; // type:func
 CD_sync = 0x80014CA8; // type:func
 CD_ready = 0x80014F28; // type:func
 CD_cw = 0x800151F0; // type:func
@@ -108,6 +129,11 @@ CD_datasync = 0x80015A74; // type:func
 CD_getsector = 0x80015BDC; // type:func
 CD_getsector2 = 0x80015CDC; // type:func
 CD_set_test_parmnum = 0x80015DC8; // type:func
+callback = 0x80015DD4; // type:func
+cb_pause = 0x80015EAC; // type:func
+cb_read = 0x80015EE0; // type:func
+cb_data = 0x80016154; // type:func
+cd_read_entry = 0x80016224; // type:func
 CdReadBreak = 0x8001640C; // type:func
 CdRead = 0x800165AC; // type:func
 CdReadSync = 0x80016748; // type:func
@@ -117,6 +143,9 @@ OpenTIM = 0x8001687C; // type:func
 ReadTIM = 0x8001688C; // type:func
 OpenTMD = 0x800168F0; // type:func
 ReadTMD = 0x80016930; // type:func
+get_tim_addr = 0x80016BD8; // type:func
+get_tmd_addr = 0x80016CF0; // type:func
+unpack_packet = 0x80016E64; // type:func
 ResetGraph = 0x800180FC; // type:func
 SetGraphDebug = 0x80018270; // type:func
 SetGraphQueue = 0x800182CC; // type:func
@@ -124,6 +153,7 @@ GetGraphDebug = 0x80018370; // type:func
 DrawSyncCallback = 0x80018380; // type:func
 SetDispMask = 0x800183E0; // type:func
 DrawSync = 0x80018478; // type:func
+checkRECT = 0x800184E0; // type:func
 ClearImage = 0x800185FC; // type:func
 ClearImage2 = 0x8001868C; // type:func
 LoadImage = 0x80018724; // type:func
@@ -146,26 +176,62 @@ SetPriority = 0x800192FC; // type:func
 SetDrawStp = 0x80019324; // type:func
 SetDrawMode = 0x8001934C; // type:func
 SetDrawEnv = 0x800193A0; // type:func
+SetDrawEnv2 = 0x80019598; // type:func
+get_mode = 0x80019808; // type:func
+get_cs = 0x80019828; // type:func
+get_ce = 0x800198C0; // type:func
+get_ofs = 0x80019958; // type:func
+get_tw = 0x80019974; // type:func
+_status = 0x800199F4; // type:func
+_otc = 0x80019A0C; // type:func
+_clr = 0x80019AEC; // type:func
+_dws = 0x80019D1C; // type:func
+_drs = 0x80019F58; // type:func
+_ctl = 0x8001A1D8; // type:func
+_getctl = 0x8001A1FC; // type:func
+_cwb = 0x8001A210; // type:func
+_cwc = 0x8001A250; // type:func
+_param = 0x8001A298; // type:func
+_addque = 0x8001A2C8; // type:func
+_addque2 = 0x8001A2EC; // type:func
+_exeque = 0x8001A59C; // type:func
+_reset = 0x8001A7FC; // type:func
+_sync = 0x8001A94C; // type:func
+set_alarm = 0x8001AA88; // type:func
+get_alarm = 0x8001AABC; // type:func
+_version = 0x8001AC00; // type:func
 LoadImage2 = 0x8001ACA0; // type:func
 StoreImage2 = 0x8001AD8C; // type:func
 MoveImage2 = 0x8001AE78; // type:func
 DrawOTag2 = 0x8001AFBC; // type:func
 _GPU_ResetCallback = 0x8001B0B8; // type:func
+memset_0 = 0x8001B0E0; // type:func
 GPU_cw = 0x8001B10C; // type:func
 
-// lib globals
+__data_start__ = 0x8001B11C;
 
+// lib globals
+__ps_libinfo__libapi__ = 0x80013A1C; // SDK version? has 0x44 in SH1 - part of code section for some reason
+
+__ps_libinfo__libspu__ = 0x8002134C; // SDK version? has 0x44 in SH1
 _spu_EVdma = 0x80021354;
 _spu_keystat = 0x80021358;
 _spu_trans_mode = 0x8002135C;
 _spu_rev_flag = 0x80021360;
 _spu_rev_reserve_wa = 0x80021364;
 _spu_rev_offsetaddr = 0x80021368;
+_spu_rev_attr = 0x8002136C;
 _spu_RQvoice = 0x80021380;
 _spu_RQmask = 0x80021384;
+_spu_voice_centerNote = 0x80021388;
 _spu_env = 0x800213B8;
 _spu_isCalled = 0x800213BC;
 _spu_RXX = 0x800213CC;
+_spu_madr = 0x800213D0;
+_spu_bcr = 0x800213D4;
+_spu_chcr = 0x800213D8;
+_spu_sys_pcr = 0x800213DC;
+_spu_delay = 0x800213E0;
 _spu_tsa = 0x800213E4;
 _spu_transMode = 0x800213E8;
 _spu_addrMode = 0x800213EC;
@@ -176,26 +242,73 @@ _spu_mem_mode_unitM = 0x800213FC;
 _spu_inTransfer = 0x80021400;
 _spu_transferCallback = 0x80021404;
 _spu_IRQCallback = 0x80021408;
+_spu_dummy_2 = 0x8002140C;
+_spu_dma_mode = 0x8002141C;
+_spu_transfer_startaddr = 0x80021420;
+_spu_transfer_time = 0x80021424;
 _spu_rev_startaddr = 0x8002142C;
 _spu_AllocBlockNum = 0x8002145C;
 _spu_AllocLastNum = 0x80021460;
 _spu_memList = 0x80021464;
 
+// vsync.o
+__ps_libinfo__libetc__ = 0x80021490; // SDK version? has 0x44 in SH1
+gp1_0 = 0x80021498; // gp1
+t1_count = 0x8002149C;
 Hcount = 0x800214A0;
+pre_vcount.2 = 0x800214A4;
 
+// snmain.o
+__ctors_start__ = 0x80010000;
+__initialised = 0x8002146C;
 __heapbase = 0x80021470;
 __heapsize = 0x80021474;
+__text = 0x80021478;
+__textlen = 0x8002147C;
+__data = 0x80021480;
+__datalen = 0x80021484;
+__bss = 0x80021488;
+__bsslen = 0x8002148C;
+__sdata_start__ = 0x80022BB0;
 _ramsize = 0x80022C6C;
 _stacksize = 0x80022C70;
 __sbss_start__ = 0x80022C90;
-//__bss_end__ = 0x80024B60; // same addr that bodyprog loads into
-__sdata_start__ = 0x80022BB0;
-__ctors_start__ = 0x80010000;
+__ra_temp = 0x80022C94;
+__bss_start__ = 0x80022C98;
+__bss_end__ = 0x80024B60; // same addr that bodyprog loads into
 
+// intr.o
+copyright = 0x800214B0;
+intrEnv = 0x80021508;
+jtb_0 = 0x80022570; // jtb
+jtbp_0 = 0x80022590; // jtbp
+i_reg = 0x80022594;
+i_mask = 0x80022598;
+d_pcr_0 = 0x8002259C; // d_pcr
+nintr.24 = 0x800225A0;
+
+// intr_vb.o
+cbIntrVSync = 0x800225B0;
 Vcount = 0x800225D0;
+t1_mode.2 = 0x800225D4;
 
+// intr_dma.o
+d_icr = 0x800225E0;
+cbIntrDMA = 0x800225E4;
+madr_top = 0x80022604;
+
+// vmode.o
+_etc_vmode = 0x80022610;
+
+// event.o
 CD_cbread = 0x80022620;
 CD_read_dma_mode = 0x80022624;
+
+// sys.o
+setloc = 0x80022630;
+
+// bios.o
+__ps_libinfo__libcd__ = 0x800226B0; // 4.3 patch?
 CD_cbsync = 0x800226B8;
 CD_cbready = 0x800226BC;
 CD_debug = 0x800226C0;
@@ -208,13 +321,71 @@ CD_com = 0x800226D5;
 DS_active = 0x800226D8; // unused?
 CD_comstr = 0x800226DC;
 CD_intstr = 0x8002275C;
+ComAttr = 0x8002277C;
 CD_test_parmnum = 0x80022960; // name guessed from CD_set_test_parmnum fn name, not named inside sdk libs
+reg0 = 0x8002297C;
+reg1 = 0x80022980;
+reg2 = 0x80022984;
+reg3 = 0x80022988;
+com_delay = 0x8002298C;
+spu = 0x80022990;
+Intr = 0x80022994;
+tab.30 = 0x80022998;
+dv5_delay = 0x800229B0;
+d_pcr_1 = 0x800229B4; // d_pcr
+d3_madr = 0x800229B8;
+d3_bcr = 0x800229BC;
+d3_chcr = 0x800229C0;
 
+// cdread.o
+ReadAttr = 0x800229D0;
+
+// sys.o
+__ps_libinfo__libgpu__ = 0x80022A10; // 4.3 patch?
+jtb_1 = 0x80022A18; // jtb
+jtbp_1 = 0x80022A58; // jtbp
 GPU_printf = 0x80022A5C;
 GEnv = 0x80022A60;
+def_width.4 = 0x80022AE0;
+def_height.5 = 0x80022AEC;
+com = 0x80022AF8;
+nop = 0x80022B0C;
+nop2 = 0x80022B20;
+dbxdtx.46 = 0x80022B34;
+dbxstep.47 = 0x80022B5C;
+gp0 = 0x80022B64;
+gp1_1 = 0x80022B68; // gp1
+d2_madr = 0x80022B6C;
+d2_bcr = 0x80022B70;
+d2_chcr = 0x80022B74;
+d6_madr = 0x80022B78;
+d6_bcr = 0x80022B7C;
+d6_chcr = 0x80022B80;
+d_pcr_2 = 0x80022B84; // d_pcr
 _qin = 0x80022B88;
 _qout = 0x80022B8C;
+i_mask_save.98 = 0x80022B90;
+i_mask_save.101 = 0x80022B94;
+i_mask_save.104 = 0x80022B98;
+target = 0x80022B9C;
+nenter = 0x80022BA0;
 
 _spu_RQ = 0x800231A0;
+
+// bios.o
+Result = 0x800231B8;
+Alarm = 0x800231D0;
 StMode = 0x800231E8; // unused?
+
+// tmd.o
+tim = 0x80023200;
+//v_ofs = 0x80023204; // unsure about these 4
+//n_ofs = 0x80023208;
+//t_prim = 0x8002320C;
+//n_prim = 0x80023210;
+p0.78 = 0x80023210;
+p1.79 = 0x80023238;
+ctlbuf = 0x80023258;
 _que = 0x80023360;
+
+// unknowns: _spu_RQ
