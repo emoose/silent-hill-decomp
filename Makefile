@@ -31,7 +31,7 @@ O_FILES_BOOT	:= $(foreach file,$(S_FILES_BOOT),$(BUILD_DIR)/$(file).o) \
 					$(foreach file,$(BIN_FILES_BOOT),$(BUILD_DIR)/$(file).o)
 
 ASM_DIR_BODYPROG	:= asm/bodyprog asm/bodyprog/data
-C_DIR_BODYPROG		:= src/bodyprog
+C_DIR_BODYPROG		:= src/bodyprog src/bodyprog/psxsdk/libapi src/bodyprog/psxsdk/libc src/bodyprog/psxsdk/libcard src/bodyprog/psxsdk/libcd src/bodyprog/psxsdk/libgpu src/bodyprog/psxsdk/libgs src/bodyprog/psxsdk/libgte src/bodyprog/psxsdk/libpad src/bodyprog/psxsdk/libspu
 BIN_DIR_BODYPROG	:= assets/bodyprog
 
 S_FILES_BODYPROG	:= $(foreach dir,$(ASM_DIR_BODYPROG),$(wildcard $(dir)/*.s))
@@ -79,7 +79,9 @@ all: dirs $(TARGET_BOOT) $(TARGET_BODYPROG) check
 
 check: $(TARGET_BOOT)
 	cat $(ROM_DIR)/sha1/$(MAIN_NAME).sha1
-	sha1sum $<
+	sha1sum $(TARGET_BOOT)
+	cat $(ROM_DIR)/sha1/$(OVERLAY_BODYPROG_NAME).sha1
+	sha1sum $(TARGET_BODYPROG)
 
 extract:
 	$(EXTRACT) $(GAME_NAME) $(IMAGE_DIR) $(ROM_DIR) $(ASSETS_DIR)

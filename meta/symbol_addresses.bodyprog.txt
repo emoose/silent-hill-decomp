@@ -115,7 +115,10 @@ _stop_pad = 0x800C4944;
 
 // c68.o
 FlushCache = 0x8009244C; // type:func
-// c68.o globals
+
+// chclrpad.o
+_remove_ChgclrPAD = 0x8009245C; // type:func
+// chclrpad.o globals
 store_0 = 0x800C4948;
 
 // a74.o
@@ -138,7 +141,7 @@ store_1 = 0x800C4958;
 
 // LIBCARD/end.o
 _ExitCard = 0x800926CC; // type:func
-_clr_vector = 0x8009273C; // type:label
+_clr_vector = 0x8009273C; // type:func
 _c_vend = 0x80092748; // type:label
 // LIBCARD/end.o globals
 store_2 = 0x800C4968;
@@ -409,9 +412,9 @@ GsClearOt = 0x80095b9c; // type:func
 GsSortOt = 0x80095bfc; // type:func
 // gs_121.o
 gte_init = 0x80095CBC; // type:func
+
 // gs_123.o
 Gssub_make_matrix = 0x80095d0c; // type:func
-
 // gs_123.o globals
 GsIDMATRIX = 0x800C6FA0;
 // symbols say these should be there, but other vars are inside the same space of them?
@@ -791,6 +794,7 @@ cmdPadInfo = 0x8009c084; // type:func
 cmdGetType = 0x8009c098; // type:func
 cmdActInfo = 0x8009c0b8; // type:func
 cmdCombList = 0x8009c0d8; // type:func
+cmdNext = 0x8009C0F8; // type:func
 // padcmd.o globals
 dst.16 = 0x800C7190; // not totally sure
 
@@ -815,6 +819,7 @@ dirClrCmdNo = 0x8009c9c4; // type:func
 getTxByte = 0x8009c9d4; // type:func
 chkCurrLimit = 0x8009ca90; // type:func
 ptr2Port = 0x8009cd0c; // type:func
+port2PadInfo = 0x8009CD44; // type:func
 // padportd.o globals
 sio__padportd_o_ = 0x800B0EBC;
 rxrawdata.4 = 0x800C71A0;
