@@ -2149,219 +2149,287 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800917C0);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009185C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80091AFC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", CloseEvent);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80091B2C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", TestEvent);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80091D38);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetSp);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80091E3C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", lseek);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80091EFC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", write);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80091F7C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", format);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80091FE8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", nextfile);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092020);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", rename);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009204C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", erase);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092058);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", Krom2RawAdd);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092068);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", firstfile);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800920F8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _firstfile);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092188);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", firstfile2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800921B8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", exit);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800921F0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", strncmp);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092268);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", strcpy);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800922A0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", strncpy);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092308);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", strlen);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009234C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", toupper);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009244C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", memcmp);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800924CC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _card_info);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092528);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _card_load);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009256C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _card_write);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092628);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _new_card);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092698);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _card_clear);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800926CC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", InitCARD);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009274C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StartCARD);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009277C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StopCARD);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092A54);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetInitPadFlag);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092A74);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ReadInitPadFlag);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092D38);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PAD_init);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80092DDC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", InitPAD);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80093078);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StartPAD);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800930EC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StopPAD);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80093170);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetPatchPad);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009319C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", RemovePatchPad);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800931FC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _Pad1);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009327C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _IsVSync);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80093308);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", InitPAD2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009336C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StartPAD2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800933FC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StopPAD2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800934AC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PAD_init2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800934EC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SysEnqIntRP);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800935AC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SysDeqIntRP);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800935CC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", EnablePAD);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80093EE8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", DisablePAD);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80093F14);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _patch_pad);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800940BC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", FlushCache);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800941A4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", InitCARD2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094208);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StartCARD2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009426C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StopCARD2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094320);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _patch_wait_start);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009435C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _check_dsr);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009439C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _dsr_start);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800943BC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _dsr_end);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800943FC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _patch_card);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009441C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _patch_card2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009443C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _copy_memcard_patch);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009445C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _ExitCard);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009447C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _clr_vector);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009449C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StSetRing);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800944BC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", CdSearchFile);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800944EC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _cmp);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009454C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", CD_newmedia);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800946CC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", CD_searchdir);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094740);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", CD_cachefile);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009485C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", cd_read);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800948C4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", CdRead2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094AE4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StCdInterrupt2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094C1C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StClearRing);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094C2C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StUnSetRing);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094D3C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", data_ready_callback);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094DBC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StGetBackloc);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094DFC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StSetStream);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094E98);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StFreeRing);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094ED0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", init_ring_status);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094F00);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StGetNext);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094F34);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StSetMask);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094F6C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StCdInterrupt);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094F9C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", mem2mem);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80094FCC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", dma_execute);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009507C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", LoadTPage);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800950EC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", LoadClut);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095118);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", LoadClut2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095144);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetDefDrawEnv);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800951D8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetDefDispEnv);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095208);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GetTPage);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095298);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GetClut);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095318);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", AddPrim);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095398);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", TermPrim);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095408);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetPolyG3);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009543C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetPolyF4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800954BC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetPolyFT4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009552C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetPolyG4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009554C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetTile);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095A04);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetDrawTPage);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095A68);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetDrawMove);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095ABC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSortFastSprite);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095B3C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsInitGraph);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095B6C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", gpu_init);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095B9C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsInitGraph2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095BFC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", valiable_init);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095CBC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSortClear);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095D0C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsGetActiveBuff);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095DDC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSetDrawBuffOffset);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095E5C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSetDrawBuffClip);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80095FEC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsInitVcount);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetRCnt);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GetRCnt);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StartRCnt);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", StopRCnt);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ResetRCnt);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsGetVcount);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsClearVcount);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSwapDispBuff);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsInitCoordinate2);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsInitCoord2param);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSetLsMatrix);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSetLightMatrix);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSetLightMatrix2);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsMulCoord0);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsMulCoord2);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsMulCoord3);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", print_matrix);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", print_vector);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsInit3D);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsMapModelingData);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSetProjection);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSetFlatLight);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", gte_set_lc);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", gte_read_lc);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSetLightMode);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSetAmbient);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsDrawOt);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsClearOt);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSortOt);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", gte_init);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", Gssub_make_matrix);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsDefDispBuff2);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsLinkObject4);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsSortObject4J);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009687C);
 
@@ -2385,319 +2453,329 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80096D2C);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80096E78);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80096EC8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", __ps_libinfo__libgte__);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80096F58);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", InitGeom);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80096FE8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SquareRoot0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097074);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", InvSquareRoot);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800970E8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", VectorNormalS);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800971A8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", VectorNormal);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097298);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", VectorNormalSS);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800972E8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", VectorNormal_entry);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097338);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", MatrixNormal);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800973C0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", LoadAverage12);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097448);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", LoadAverage0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800974A8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", LoadAverageShort12);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097528);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", LoadAverageShort0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800975C8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", LoadAverageByte);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800976D8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", LoadAverageCol);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800977C8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SquareRoot12);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097928);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", MulMatrix0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097A88);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", MulRotMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097AB8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", CompMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097B5C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ApplyMatrixLV);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097C08);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ApplyRotMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097C58);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PushMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097D98);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PopMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097E88);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ReadLightMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80097F98);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ApplyRotMatrixLV);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800980A8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetMulRotMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800980F8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", MulMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098158);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", MulMatrix2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098188);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ApplyMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800982C8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ApplyMatrixSV);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800982F8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", TransMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098328);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ScaleMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098358);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetRotMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098378);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetLightMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098398);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetColorMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800983A8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetTransMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800983C8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ReadGeomOffset);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800983E8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ReadGeomScreen);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098408);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetBackColor);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098418);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetFarColor);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009843C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetGeomOffset);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098458);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SetGeomScreen);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098474);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", LocalLight);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800984B0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", DpqColor);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800984D4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", NormalColor);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009851C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", NormalColor3);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009853C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", NormalColorDpq);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098580);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", NormalColorDpq3);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800985A8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", NormalColorCol);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800985CC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", NormalColorCol3);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800985DC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ColorDpq);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800985F8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ColorCol);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098620);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", AverageSZ3);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098648);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", AverageSZ4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098684);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", LightColor);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800986A8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", DpqColorLight);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800986D0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", DpqColor3);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800986F8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", Intpl);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098718);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", Square12);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009873C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", Square0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098794);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", AverageZ3);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800987EC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", AverageZ4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098808);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", OuterProduct12);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098838);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", OuterProduct0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098898);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", Lzc);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800988C8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", RotTransPers);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098948);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", RotTransPers3);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098988);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", RotTrans);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098AD0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", RotTransPers4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098C10);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", TransposeMatrix);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098DA0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastNG3);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80098F38);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastG3NL);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800990B8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastG3L);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009922C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastG3LFG);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009940C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastNG4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800995F8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastG4NL);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80099770);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastG4L);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800998CC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastG4LFG);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80099A80);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastTNG3);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80099C38);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastTG3NL);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80099DF4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastTG3L);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80099F8C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastTG3LFG);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A198);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastTNG4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A3A8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastTG4NL);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A528);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastTG4L);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A5D4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GsTMDfastTG4LFG);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A628);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ratan2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A648);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _patch_gte);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A668);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", oldbug);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A6B4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadChkVsync);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A774);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadStartCom);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A86C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadStopCom);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A940);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadChkMtap);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009A9E8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadGetState);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009AA20);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadInfoMode);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009AA68);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadInfoAct);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009AAB8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadInfoComb);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009ABD0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadSetActAlign);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009ABFC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadSetMainMode);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009AC64);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadSetAct);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009ADD0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadEnableCom);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009ADE4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padSetVsyncParam);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009AEB0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", isVsync);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009AEF4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", intPad);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009B228);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padChkVsync);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009B2F0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padStartCom);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009B4C8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padStopCom);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009B700);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padInitSioMode);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009B790);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", execIntState);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009B7B8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padSioRW);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009B7C4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padSioRW2);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009B7D4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padClrIntSio0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009B858);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padWaitRXready);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009B9A4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padSetAct);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009B9DC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padSetCmd);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009BAB0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padSendAtLoadInfo);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009BB58);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padRecvAtLoadInfo);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009BDCC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padGetActSize);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009BE34);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padLoadActInfo);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009BE50);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", sendAtLoadAct);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009BF18);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", recvAtLoadAct);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009BFB0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padSetActAlign);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C004);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", sendAtActAlign);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C064);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", recvAtActAlign);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C084);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padSetMainMode);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C098);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", sendAtMainMode);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C0B8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", recvAtMainMode);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C0D8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padCmdParaMode);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", cmdPadInfo);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", cmdGetType);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", cmdActInfo);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", cmdCombList);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C0F8);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C118);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", intFuncReqa);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C160);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", intFuncCmd);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C238);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", intFuncSize);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C2F8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", intFuncAck);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C384);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", intFuncData);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C708);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", PadInitDirect);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C868);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", clrInfo);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C8D0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", nextPort);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C9C4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", dirClrCmdNo);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009C9D4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", getTxByte);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009CA90);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", chkCurrLimit);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009CD0C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", ptr2Port);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009CD44);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009CD68);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _padInitDirSeq);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009CD9C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", dirSendAuto);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009CE9C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", dirRecvAuto);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009D0EC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _dirFailAuto);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009D1C8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", dirChkEngCmd);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009D1F8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", setRC2wait);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009D218);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", chkRC2wait);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009D2B8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuClearReverbWorkArea);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009D458);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", WaitEvent);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009D4E8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _SpuIsInAllocateArea);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009D578);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _SpuIsInAllocateArea_);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009D5A8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuSetTransferMode);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009DBA8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuSetVoiceAttr);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009DC78);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _spu_note2pitch);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009DDA8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _spu_pitch2note);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuGetVoiceAttr);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8009E198);
 
@@ -2920,35 +2998,37 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A2308);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A2338);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A235C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuQuit);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A23DC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", DisableEvent);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A244C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuInitMalloc);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A251C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuSetReverb);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A29FC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuSetReverbModeParam);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A2ECC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _spu_setReverbAttr);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A2F1C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuReserveReverbWorkArea);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A2F4C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuSetReverbVoice);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A320C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _SpuSetAnyVoice);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A33CC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuSetKey);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A345C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuGetKeyStatus);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A348C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuSetKeyOnWithAttr);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A34EC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuWrite);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A354C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuSetTransferStartAddr);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A35FC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuIsTransferCompleted);
+
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuSetCommonAttr);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A397C);
 
@@ -3020,9 +3100,9 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A6C60);
 void func_800A6CB0(void) {
 }
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A6CB8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", SpuGetReverbVoice);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A6CE8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", _SpuGetAnyVoice);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800A6D18);
 
