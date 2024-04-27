@@ -1,39 +1,52 @@
-name: Silent Hill (North America)
-basename: SLUS_007.07
+name: SLUS_007.07
 sha1: f38344565fb731befc52fd968eb5a667be37acf3
 options:
-  # Paths
-  base_path: .
+  basename: slus_007.07
   target_path: rom/SLUS_007.07
+  base_path: .
+  platform: psx
+  compiler: GCC
+
   asm_path: asm/main
   asset_path: assets/main
   src_path: src/main
-  # compiler
-  platform: psx
-  compiler: GCC
+
   ld_script_path: linker/SLUS_007.07.ld
-  # disasm/linker
+
+  find_file_boundaries: False
   gp_value: 0x80022BB0
+
+  use_legacy_include_asm: False
+
+  section_order: [".rodata", ".text", ".data", ".bss"]
+
   symbol_addrs_path: meta/symbol_addresses.main.txt
+  reloc_addrs_path: meta/reloc_addrs.main.txt
   undefined_funcs_auto_path: meta/undefined_functions_auto.main.txt
   undefined_syms_auto_path: meta/undefined_symbols_auto.main.txt
-  find_file_boundaries: true
-  enable_ld_alignment_hack: true
-  use_legacy_include_asm: false
-  section_order: [".rodata", ".text", ".data", ".bss"]
+
+  extensions_path: tools/splat_ext
+
+  subalign: 4
+
+  string_encoding: ASCII
+  data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
 rom:
   path: rom/image
   extraction_path: rom
 segments:
   - [0x0, header]
-  - [0x84, bin, zeroPadding]  # Zero Padding
   - name: main
     type: code
     start: 0x800
     vram: 0x80010000
     subalign: 4
+    align: 4
+    # bss_size: Please fill out this value when you figure out the bss size
     subsegments:
-      - [0x800, data, stringsquestionmark]
+      - [0x800, rodata, 800]
       - [0xF70, c, boot]
       # konami CD library code?
       - [0x1324, c, cdfs]
@@ -80,4 +93,4 @@ segments:
       - [0xB90C, c, psxsdk/libapi/c73] # GPU_cw
 
       - [0xB91C, data, boot]
-  - [0x13FFF]
+  - [0x14000]

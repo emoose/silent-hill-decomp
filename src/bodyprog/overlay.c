@@ -1215,7 +1215,7 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80057090);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_800571D0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", L80057200);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80057200);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80057208);
 

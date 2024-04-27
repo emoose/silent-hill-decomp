@@ -1,12 +1,50 @@
 main = 0x80010770; // type:func
 
 Overlay_DecryptData_80010AD0 = 0x80010AD0; // type:func
-CDFS_GetFileSize_80010B24 = 0x80010B24; // type:func
-CDFSEntry_GetFilePath_80010B88 = 0x80010B88; // type:func
-CDFS_GetFilePath_80010B54 = 0x80010B54; // type:func
-CDFS_GetFileSectorCount_80010CD4 = 0x80010CD4; // type:func
-CDFS_ReadFile_80010F68 = 0x80010F68; // type:func
-CDFS_ReadFileEx_80011074 = 0x80011074; // type:func
+FS_GetFileSize_80010B24 = 0x80010B24; // type:func
+FSEntry_GetFilePath_80010B88 = 0x80010B88; // type:func
+FS_GetFilePath_80010B54 = 0x80010B54; // type:func
+FS_GetFileSizeAligned_80010CD4 = 0x80010CD4; // type:func
+FS_CompressFileName_80010C60 = 0x80010C60; // type:func // returns name0123 / name4567, takes char*
+FS_SearchNextInDir_80010D0C = 0x80010D0C; // type:func // path index / offset / search-direction
+FS_SearchFile_80010D80 = 0x80010D80; // type:func // takes char*, path/extension idx(?), start-num
+FS_NumInProgress_80010E68 = 0x80010E68; // type:func
+FS_PreloadFile_80010F34 = 0x80010F34; // type:func // unsure
+FS_ReadFile_80010F68 = 0x80010F68; // type:func
+FS_ReadTIM_80010F9C = 0x80010F9C; // type:func
+FS_ReadFileEx_80011074 = 0x80011074; // type:func
+FS_Reset_80011170 = 0x80011170; // type:func
+FS_Update_80011260 = 0x80011260; // type:func
+
+FSQueueEntry_UpdateType1_8001137C = 0x8001137C; // type:func
+FSQueueEntry_UpdateType2_800114C4 = 0x800114C4; // type:func
+
+FSQueueEntry_PrepareDestBuffer_80011630 = 0x80011630; // type:func
+
+//FSQueueEntry_IsNext_800116BC = 0x800116BC; // type:func // unsure about this
+FS_DoBuffersOverlap_800117AC = 0x800117AC; // type:func // unsure
+
+FSQueueEntry_CdSetLoc_800117E8 = 0x800117E8; // type:func
+FSQueueEntry_CdRead_8001182C = 0x8001182C; // type:func
+FS_CdDisableXa_80011884 = 0x80011884; // type:func
+FSQueueEntry_HdRead_8001190C = 0x8001190C; // type:func
+
+FSQueueEntry_LoadTIM_80011B24 = 0x80011B24; // type:func
+
+FS_MemArena_init_80011C70 = 0x80011C70; // type:func // not sure if this is an arena allocator
+FS_MemArena_alloc_80011D04 = 0x80011D04; // type:func
+FS_MemArena_calcFreeSpace_80011E4C = 0x80011E4C; // type:func // not totally sure
+FS_MemArena_free_80011ED0 = 0x80011ED0; // type:func
+FS_MemArena_set_80011F48 = 0x80011F48; // type:func // not totally sure
+
+memcpy = 0x80011F78; // type:func
+lcg_rand_800120B8 = 0x800120B8; // type:func
+lcg_rand15b_800120E4 = 0x800120E4; // type:func
+lcg_srand_80012104 = 0x80012104; // type:func
+lcg_srand_get_80012110 = 0x80012110; // type:func
+lcg_rand12b_8001211C = 0x8001211C; // type:func
+
+memcpy32 = 0x8001213C; // type:func
 
 file_info = 0x8001B11C;
 path_name_p = 0x80021254;
@@ -49,7 +87,6 @@ _spu_Fw1ts = 0x80012EC4; // type:func
 DeliverEvent = 0x80012F2C; // type:func
 printf = 0x80012F3C; // type:func
 _SpuDataCallback = 0x80012F4C; // type:func
-__main = 0x80013024; // type:func
 __do_global_dtors = 0x80013094; // type:func
 InitHeap = 0x800130FC; // type:func
 VSync = 0x8001310C; // type:func
@@ -208,7 +245,7 @@ _GPU_ResetCallback = 0x8001B0B8; // type:func
 memset_0 = 0x8001B0E0; // type:func
 GPU_cw = 0x8001B10C; // type:func
 
-__data_start__ = 0x8001B11C;
+//__data_start__ = 0x8001B11C;
 
 // lib globals
 __ps_libinfo__libapi__ = 0x80013A1C; // SDK version? has 0x44 in SH1 - part of code section for some reason
@@ -275,7 +312,7 @@ _stacksize = 0x80022C70;
 __sbss_start__ = 0x80022C90;
 __ra_temp = 0x80022C94;
 __bss_start__ = 0x80022C98;
-__bss_end__ = 0x80024B60; // same addr that bodyprog loads into
+//__bss_end__ = 0x80024B60; // same addr that bodyprog loads into
 
 // intr.o
 copyright = 0x800214B0;

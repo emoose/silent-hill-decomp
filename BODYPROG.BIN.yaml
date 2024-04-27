@@ -1,24 +1,38 @@
-name: Silent Hill (North America) BODYPROG
+name: BODYPROG
+sha1: eb118537b0c3c1e5cccfa2c5d283b3119c5ec7a3
 options:
-  # Paths
   basename: BODYPROG.BIN
-  base_path: .
   target_path: assets/1ST/BODYPROG.BIN
+  base_path: .
+  platform: psx
+  compiler: GCC
+
   asm_path: asm/bodyprog
   asset_path: assets/bodyprog
   src_path: src/bodyprog
-  # compiler
-  platform: psx
-  compiler: GCC
+
   ld_script_path: linker/BODYPROG.BIN.ld
-  # disasm/linker
+
+  find_file_boundaries: False
+  gp_value: 0x80022BB0
+
+  use_legacy_include_asm: False
+
+  section_order: [".rodata", ".text", ".data", ".bss"]
+
   symbol_addrs_path: meta/symbol_addresses.bodyprog.txt
+  reloc_addrs_path: meta/reloc_addrs.bodyprog.txt
   undefined_funcs_auto_path: meta/undefined_functions_auto.bodyprog.txt
   undefined_syms_auto_path: meta/undefined_symbols_auto.bodyprog.txt
-  find_file_boundaries: True
-  enable_ld_alignment_hack: True
-  use_legacy_include_asm: False
-  section_order: [".rodata", ".text", ".data", ".bss"]
+
+  extensions_path: tools/splat_ext
+
+  subalign: 4
+
+  string_encoding: ASCII
+  data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
 rom:
   path: rom/image
   extraction_path: rom
@@ -28,8 +42,9 @@ segments:
     start: 0
     vram: 0x80024B60
     subalign: 4
+    align: 4
     subsegments:
-      - [0x0, data, overlay_data]
+      - [0x0, rodata]
       - [0x9ad0, c, overlay]
       - [0x6cf9c, c, psxsdk/libapi/a09]
       - [0x6cfac, c, psxsdk/libapi/a11]

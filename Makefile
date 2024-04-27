@@ -6,6 +6,7 @@ SEG_1_NAME		:= SILENT
 SEG_2_NAME		:= HILL
 
 OVERLAY_BODYPROG_NAME := BODYPROG.BIN
+OVERLAY_B_KONAMI_NAME := B_KONAMI.BIN
 
 ROM_DIR			:= rom
 IMAGE_DIR		:= $(ROM_DIR)/image
@@ -15,6 +16,7 @@ ASSETS_DIR		:= assets
 
 TARGET_BOOT		:= $(BUILD_DIR)/$(MAIN_NAME)
 TARGET_BODYPROG := $(BUILD_DIR)/$(OVERLAY_BODYPROG_NAME)
+TARGET_B_KONAMI := $(BUILD_DIR)/$(OVERLAY_B_KONAMI_NAME)
 
 # Source Definitions
 
@@ -42,9 +44,21 @@ O_FILES_BODYPROG	:= $(foreach file,$(S_FILES_BODYPROG),$(BUILD_DIR)/$(file).o) \
 					$(foreach file,$(C_FILES_BODYPROG),$(BUILD_DIR)/$(file).o) \
 					$(foreach file,$(BIN_FILES_BODYPROG),$(BUILD_DIR)/$(file).o)
 
-ASM_DIRS_ALL	:= $(ASM_DIR_BOOT) $(ASM_DIR_BODYPROG)
-C_DIRS_ALL		:= $(C_DIR_BOOT) $(C_DIR_BODYPROG)
-BIN_DIRS_ALL	:= $(BIN_DIR_BOOT) $(BIN_DIR_BODYPROG)
+ASM_DIR_B_KONAMI	:= asm/b_konami asm/b_konami/data
+C_DIR_B_KONAMI		:= src/b_konami
+BIN_DIR_B_KONAMI	:= assets/b_konami
+
+S_FILES_B_KONAMI	:= $(foreach dir,$(ASM_DIR_B_KONAMI),$(wildcard $(dir)/*.s))
+C_FILES_B_KONAMI	:= $(foreach dir,$(C_DIR_B_KONAMI),$(wildcard $(dir)/*.c))
+BIN_FILES_B_KONAMI	:= $(foreach dir,$(BIN_DIR_B_KONAMI),$(wildcard $(dir)/*.bin))
+
+O_FILES_B_KONAMI	:= $(foreach file,$(S_FILES_B_KONAMI),$(BUILD_DIR)/$(file).o) \
+					$(foreach file,$(C_FILES_B_KONAMI),$(BUILD_DIR)/$(file).o) \
+					$(foreach file,$(BIN_FILES_B_KONAMI),$(BUILD_DIR)/$(file).o)
+
+ASM_DIRS_ALL	:= $(ASM_DIR_BOOT) $(ASM_DIR_BODYPROG) $(ASM_DIR_B_KONAMI)
+C_DIRS_ALL		:= $(C_DIR_BOOT) $(C_DIR_BODYPROG) $(C_DIR_B_KONAMI)
+BIN_DIRS_ALL	:= $(BIN_DIR_BOOT) $(BIN_DIR_BODYPROG) $(BIN_DIR_B_KONAMI)
 
 # Tools
 PYTHON          := python3
@@ -75,13 +89,15 @@ OBJCOPY_FLAGS   := -O binary
 # Rules
 default: all
 
-all: dirs $(TARGET_BOOT) $(TARGET_BODYPROG) check
+all: dirs $(TARGET_BOOT) $(TARGET_BODYPROG) $(TARGET_B_KONAMI) check
 
 check: $(TARGET_BOOT)
 	cat $(ROM_DIR)/sha1/$(MAIN_NAME).sha1
 	sha1sum $(TARGET_BOOT)
 	cat $(ROM_DIR)/sha1/$(OVERLAY_BODYPROG_NAME).sha1
 	sha1sum $(TARGET_BODYPROG)
+	cat $(ROM_DIR)/sha1/$(OVERLAY_B_KONAMI_NAME).sha1
+	sha1sum $(TARGET_B_KONAMI)
 
 extract:
 	$(EXTRACT) $(GAME_NAME) $(IMAGE_DIR) $(ROM_DIR) $(ASSETS_DIR)
@@ -89,6 +105,7 @@ extract:
 generate:
 	$(SPLAT) $(MAIN_NAME).yaml
 	$(SPLAT) $(OVERLAY_BODYPROG_NAME).yaml
+	$(SPLAT) $(OVERLAY_B_KONAMI_NAME).yaml
 
 dirs:
 	$(foreach dir,$(ASM_DIRS_ALL) $(C_DIRS_ALL) $(BIN_DIRS_ALL),$(shell mkdir -p $(BUILD_DIR)/$(dir)))
@@ -122,6 +139,13 @@ $(TARGET_BODYPROG): $(TARGET_BODYPROG).elf
 
 $(TARGET_BODYPROG).elf: $(O_FILES_BODYPROG)
 	$(LD) -Map $(TARGET_BODYPROG).map -T linker/$(OVERLAY_BODYPROG_NAME).ld -T meta/undefined_symbols_auto.bodyprog.txt -T meta/undefined_functions_auto.bodyprog.txt -T meta/undefined_symbols.bodyprog.txt --no-check-sections -o $@
+
+# b_konami
+$(TARGET_B_KONAMI): $(TARGET_B_KONAMI).elf
+	$(OBJCOPY) $(OBJCOPY_FLAGS) $< $@
+
+$(TARGET_B_KONAMI).elf: $(O_FILES_B_KONAMI)
+	$(LD) -Map $(TARGET_B_KONAMI).map -T linker/$(OVERLAY_B_KONAMI_NAME).ld -T meta/undefined_symbols_auto.b_konami.txt -T meta/undefined_functions_auto.b_konami.txt -T meta/undefined_symbols.b_konami.txt --no-check-sections -o $@
 
 # generate objects
 $(BUILD_DIR)/%.i: %.c
