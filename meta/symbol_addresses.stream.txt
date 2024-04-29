@@ -9,12 +9,18 @@ strKickCD = 0x801e31cc;
 strNextVlc = 0x801e3298;
 strNext = 0x801e331c;
 strSync = 0x801e3438;
+// MOVIESYS globals
+max_frame = 0x801E3F40;
+frame_cnt = 0x801E3F44;
+m = 0x801F50E0;
 
 // dscb.o
 DsSyncCallback = 0x801e34cc;
 DsReadyCallback = 0x801e34e0;
 DsStartCallback = 0x801e34f4;
 DsDataCallback = 0x801e3508;
+// dscb.o globals
+GlobalCallback = 0x801F50E8;
 
 // libpress.o
 DecDCTReset = 0x801e352c;

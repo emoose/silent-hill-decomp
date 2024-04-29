@@ -5,6 +5,8 @@ typedef signed char s8;
 typedef short s16;
 typedef int s32;
 
+typedef unsigned char u8;
+typedef unsigned short u16;
 typedef unsigned int u32;
 
 typedef int int32_t;
@@ -34,6 +36,8 @@ typedef volatile unsigned char vu_char;
 typedef volatile unsigned short vu_short;
 typedef volatile unsigned long vu_long;
 typedef volatile unsigned int vu_int;
+
+#define NULL 0
 
 #ifndef _UCHAR_T
 #define _UCHAR_T

@@ -90,6 +90,9 @@ CC_PSYQ_46      := $(WINE) $(TOOLS_DIR)/psyq/4.6/CC1PSX.EXE # 2.95
 CC		:= $(CC_PSYQ_43)
 SPLAT           := $(PYTHON) $(TOOLS_DIR)/splat/split.py
 EXTRACT			:= $(TOOLS_DIR)/extractDisk.sh
+MASPSX_DIR      := $(TOOLS_DIR)/maspsx
+MASPSX_APP      := $(MASPSX_DIR)/maspsx.py
+MASPSX          := $(PYTHON) $(MASPSX_APP) --expand-div --aspsx-version=2.79
 
 # Flags
 OPT_FLAGS       := -O2
@@ -150,12 +153,16 @@ $(TARGET_BOOT): $(TARGET_BOOT).elf
 $(TARGET_BOOT).elf: $(O_FILES_BOOT)
 	$(LD) -Map $(TARGET_BOOT).map -T linker/$(MAIN_NAME).ld -T meta/undefined_symbols_auto.main.txt -T meta/undefined_functions_auto.main.txt -T meta/undefined_symbols.main.txt --no-check-sections -o $@
 
+main: dirs $(TARGET_BOOT)
+
 # bodyprog / main overlay
 $(TARGET_BODYPROG): $(TARGET_BODYPROG).elf
 	$(OBJCOPY) $(OBJCOPY_FLAGS) $< $@
 
 $(TARGET_BODYPROG).elf: $(O_FILES_BODYPROG)
 	$(LD) -Map $(TARGET_BODYPROG).map -T linker/$(OVERLAY_BODYPROG_NAME).ld -T meta/undefined_symbols_auto.bodyprog.txt -T meta/undefined_functions_auto.bodyprog.txt -T meta/undefined_symbols.bodyprog.txt --no-check-sections -o $@
+
+bodyprog: dirs $(TARGET_BODYPROG)
 
 # b_konami
 $(TARGET_B_KONAMI): $(TARGET_B_KONAMI).elf
@@ -164,12 +171,16 @@ $(TARGET_B_KONAMI): $(TARGET_B_KONAMI).elf
 $(TARGET_B_KONAMI).elf: $(O_FILES_B_KONAMI)
 	$(LD) -Map $(TARGET_B_KONAMI).map -T linker/$(OVERLAY_B_KONAMI_NAME).ld -T meta/undefined_symbols_auto.b_konami.txt -T meta/undefined_functions_auto.b_konami.txt -T meta/undefined_symbols.b_konami.txt --no-check-sections -o $@
 
+b_konami: dirs $(TARGET_B_KONAMI)
+
 # stream
 $(TARGET_STREAM): $(TARGET_STREAM).elf
 	$(OBJCOPY) $(OBJCOPY_FLAGS) $< $@
 
 $(TARGET_STREAM).elf: $(O_FILES_STREAM)
 	$(LD) -Map $(TARGET_STREAM).map -T linker/$(OVERLAY_STREAM_NAME).ld -T meta/undefined_symbols_auto.stream.txt -T meta/undefined_functions_auto.stream.txt -T meta/undefined_symbols.stream.txt --no-check-sections -o $@
+
+stream: dirs $(TARGET_STREAM)
 
 # generate objects
 $(BUILD_DIR)/%.i: %.c
@@ -179,7 +190,7 @@ $(BUILD_DIR)/%.c.s: $(BUILD_DIR)/%.i
 	$(CC) $(CC_FLAGS) -o $@ $<
 
 $(BUILD_DIR)/%.c.o: $(BUILD_DIR)/%.c.s
-	$(AS) $(AS_FLAGS) -o $@ $<
+	$(MASPSX) $< | $(AS) $(AS_FLAGS) -o $@
 
 $(BUILD_DIR)/%.s.o: %.s
 	$(AS) $(AS_FLAGS) -o $@ $<
