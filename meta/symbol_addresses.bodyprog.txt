@@ -885,12 +885,8 @@ SpuReserveReverbWorkArea = 0x800a2ecc; // type:func
 SpuSetReverbVoice = 0x800a2f1c; // type:func
 // s_sav.o
 _SpuSetAnyVoice = 0x800a2f4c; // type:func
-
 // s_sk.o
 SpuSetKey = 0x800a320c; // type:func
-// s_sk.o externs
-_spu_RQ = 0x800231A0;
-
 // s_gks.o
 SpuGetKeyStatus = 0x800a33cc; // type:func
 // s_skowa.o

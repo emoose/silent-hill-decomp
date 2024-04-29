@@ -19,7 +19,10 @@ options:
 
   section_order: [".rodata", ".text", ".data", ".bss"]
 
-  symbol_addrs_path: meta/symbol_addresses.stream.txt
+  symbol_addrs_path:
+    - meta/symbol_addresses.main.txt
+    - meta/symbol_addresses.bodyprog.txt
+    - meta/symbol_addresses.stream.txt
   reloc_addrs_path: meta/reloc_addrs.stream.txt
   undefined_funcs_auto_path: meta/undefined_functions_auto.stream.txt
   undefined_syms_auto_path: meta/undefined_symbols_auto.stream.txt
@@ -44,9 +47,9 @@ segments:
     align: 4
     subsegments:
       - [0x0, rodata]
-      - [0x54, c, overlay]
+      - [0x54, c, overlay_stream]
       - [0xECC, c, psxsdk/libds/dscb]
       - [0xF2C, c, psxsdk/libpress/libpress]
       - [0x15EC, c, psxsdk/libpress/vlc]
-      - [0x193C, data, overlay]
+      - [0x193C, data, overlay_stream]
   - [0x12B00]

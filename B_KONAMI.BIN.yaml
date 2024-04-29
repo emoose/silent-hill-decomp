@@ -20,7 +20,10 @@ options:
 
   section_order: [".rodata", ".text", ".data", ".bss"]
 
-  symbol_addrs_path: meta/symbol_addresses.b_konami.txt
+  symbol_addrs_path:
+    - meta/symbol_addresses.main.txt
+    - meta/symbol_addresses.bodyprog.txt
+    - meta/symbol_addresses.b_konami.txt
   reloc_addrs_path: meta/reloc_addrs.b_konami.txt
   undefined_funcs_auto_path: meta/undefined_functions_auto.b_konami.txt
   undefined_syms_auto_path: meta/undefined_symbols_auto.b_konami.txt
@@ -45,6 +48,6 @@ segments:
     align: 4
     subsegments:
       - [0x0, rodata]
-      - [0x34, c, overlay]
-      - [0xF78, data, overlay] # padding at end?
+      - [0x34, c, overlay_b_konami]
+      - [0xF78, data, overlay_b_konami] # padding at end?
   - [0x1000]
