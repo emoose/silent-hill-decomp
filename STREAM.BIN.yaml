@@ -1,0 +1,52 @@
+name: STREAM
+options:
+  basename: STREAM.BIN
+  target_path: assets/VIN/STREAM.BIN
+  base_path: .
+  platform: psx
+  compiler: GCC
+
+  asm_path: asm/stream
+  asset_path: assets/stream
+  src_path: src/stream
+
+  ld_script_path: linker/STREAM.BIN.ld
+
+  find_file_boundaries: False
+  gp_value: 0x80022BB0
+
+  use_legacy_include_asm: False
+
+  section_order: [".rodata", ".text", ".data", ".bss"]
+
+  symbol_addrs_path: meta/symbol_addresses.stream.txt
+  reloc_addrs_path: meta/reloc_addrs.stream.txt
+  undefined_funcs_auto_path: meta/undefined_functions_auto.stream.txt
+  undefined_syms_auto_path: meta/undefined_symbols_auto.stream.txt
+
+  extensions_path: tools/splat_ext
+
+  subalign: 4
+
+  string_encoding: ASCII
+  data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
+rom:
+  path: rom/image
+  extraction_path: rom
+segments:
+  - name: stream
+    type: code
+    start: 0
+    vram: 0x801E2600
+    subalign: 4
+    align: 4
+    subsegments:
+      - [0x0, rodata]
+      - [0x54, c, overlay]
+      - [0xECC, c, psxsdk/libds/dscb]
+      - [0xF2C, c, psxsdk/libpress/libpress]
+      - [0x15EC, c, psxsdk/libpress/vlc]
+      - [0x193C, data, overlay]
+  - [0x12B00]

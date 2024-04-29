@@ -1,13 +1,10 @@
-// these non-sdk funcs all use cop2 instructions which the splat we use can't identify
-func_80049530 = 0x80049530; // type:func
-func_80055A90 = 0x80055A90; // type:func
-func_80055B74 = 0x80055B74; // type:func
-func_80055C3C = 0x80055C3C; // type:func
-func_8006342C = 0x8006342C; // type:func
-func_800652F4 = 0x800652F4; // type:func
-func_80065B94 = 0x80065B94; // type:func
-func_80066184 = 0x80066184; // type:func
-func_800805BC = 0x800805BC; // type:func
+GameLoop_80032EE0 = 0x80032EE0; // type:func
+
+JOY_Init_8003441C = 0x8003441C; // type:func
+JoyPadBuff_tmp_P1 = 0x800BCCDC;
+JoyPadBuff_tmp_P2 = 0x800BC78C;
+JOY_ReadP1_80034450 = 0x80034450; // type:func
+JoyPadBuff_P1 = 0x800BC760; // type:s64
 
 // sdk library funcs
 
@@ -275,6 +272,7 @@ i_mask_0 = 0x800AFF80; // i_mask
 debug_cause = 0x800AFF84;
 count.3 = 0x800AFF88;
 HeaderArea.2 = 0x800C6DD8;
+StCdIntrFlag = 0x800C4984; // todo why wasn't this named before?
 
 // e00.o
 LoadTPage = 0x800940BC; // type:func

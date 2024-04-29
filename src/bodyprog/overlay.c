@@ -194,7 +194,7 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80032CE8);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80032D1C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80032EE0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", GameLoop_80032EE0);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8003342C);
 
@@ -216,9 +216,9 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80034108);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80034264);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8003441C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", JOY_Init_8003441C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_80034450);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", JOY_ReadP1_80034450);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay", func_8003446C);
 

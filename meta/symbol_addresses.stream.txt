@@ -1,0 +1,40 @@
+// beatmania MOVIESYS names, which seems based on PSX SDK sample code
+// (MOVIESYS seems closer to SH1 than the SDK code)
+open_main = 0x801e2aa4;
+movie_main = 0x801e2b9c;
+strSetDefDecEnv = 0x801e2f8c;
+strInit = 0x801e300c;
+strCallback = 0x801e307c;
+strKickCD = 0x801e31cc;
+strNextVlc = 0x801e3298;
+strNext = 0x801e331c;
+strSync = 0x801e3438;
+
+// dscb.o
+DsSyncCallback = 0x801e34cc;
+DsReadyCallback = 0x801e34e0;
+DsStartCallback = 0x801e34f4;
+DsDataCallback = 0x801e3508;
+
+// libpress.o
+DecDCTReset = 0x801e352c;
+DecDCTGetEnv = 0x801e3560;
+DecDCTPutEnv = 0x801e35ec;
+DecDCTBufSize = 0x801e3684;
+DecDCTin = 0x801e3690;
+DecDCTout = 0x801e370c;
+DecDCTinSync = 0x801e372c;
+DecDCToutSync = 0x801e3768;
+DecDCTinCallback = 0x801e37a4;
+DecDCToutCallback = 0x801e37c8;
+MDEC_reset = 0x801e37ec;
+MDEC_in = 0x801e38dc;
+MDEC_out = 0x801e396c;
+MDEC_in_sync = 0x801e39f8;
+MDEC_out_sync = 0x801e3a8c;
+MDEC_status = 0x801e3b20;
+timeout = 0x801e3b38;
+
+// vlc.o
+DecDCTvlcSize = 0x801e3bbc;
+DecDCTvlc = 0x801e3bec;

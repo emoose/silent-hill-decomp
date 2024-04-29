@@ -5,8 +5,9 @@ MAIN_NAME   	:= SLUS_007.07
 SEG_1_NAME		:= SILENT
 SEG_2_NAME		:= HILL
 
-OVERLAY_BODYPROG_NAME := BODYPROG.BIN
-OVERLAY_B_KONAMI_NAME := B_KONAMI.BIN
+OVERLAY_BODYPROG_NAME	:= BODYPROG.BIN
+OVERLAY_B_KONAMI_NAME	:= B_KONAMI.BIN
+OVERLAY_STREAM_NAME		:= STREAM.BIN
 
 ROM_DIR			:= rom
 IMAGE_DIR		:= $(ROM_DIR)/image
@@ -17,6 +18,7 @@ ASSETS_DIR		:= assets
 TARGET_BOOT		:= $(BUILD_DIR)/$(MAIN_NAME)
 TARGET_BODYPROG := $(BUILD_DIR)/$(OVERLAY_BODYPROG_NAME)
 TARGET_B_KONAMI := $(BUILD_DIR)/$(OVERLAY_B_KONAMI_NAME)
+TARGET_STREAM := $(BUILD_DIR)/$(OVERLAY_STREAM_NAME)
 
 # Source Definitions
 
@@ -56,9 +58,21 @@ O_FILES_B_KONAMI	:= $(foreach file,$(S_FILES_B_KONAMI),$(BUILD_DIR)/$(file).o) \
 					$(foreach file,$(C_FILES_B_KONAMI),$(BUILD_DIR)/$(file).o) \
 					$(foreach file,$(BIN_FILES_B_KONAMI),$(BUILD_DIR)/$(file).o)
 
-ASM_DIRS_ALL	:= $(ASM_DIR_BOOT) $(ASM_DIR_BODYPROG) $(ASM_DIR_B_KONAMI)
-C_DIRS_ALL		:= $(C_DIR_BOOT) $(C_DIR_BODYPROG) $(C_DIR_B_KONAMI)
-BIN_DIRS_ALL	:= $(BIN_DIR_BOOT) $(BIN_DIR_BODYPROG) $(BIN_DIR_B_KONAMI)
+ASM_DIR_STREAM	:= asm/stream asm/stream/data
+C_DIR_STREAM		:= src/stream src/stream/psxsdk/libds src/stream/psxsdk/libpress
+BIN_DIR_STREAM	:= assets/stream
+
+S_FILES_STREAM	:= $(foreach dir,$(ASM_DIR_STREAM),$(wildcard $(dir)/*.s))
+C_FILES_STREAM	:= $(foreach dir,$(C_DIR_STREAM),$(wildcard $(dir)/*.c))
+BIN_FILES_STREAM	:= $(foreach dir,$(BIN_DIR_STREAM),$(wildcard $(dir)/*.bin))
+
+O_FILES_STREAM	:= $(foreach file,$(S_FILES_STREAM),$(BUILD_DIR)/$(file).o) \
+					$(foreach file,$(C_FILES_STREAM),$(BUILD_DIR)/$(file).o) \
+					$(foreach file,$(BIN_FILES_STREAM),$(BUILD_DIR)/$(file).o)
+
+ASM_DIRS_ALL	:= $(ASM_DIR_BOOT) $(ASM_DIR_BODYPROG) $(ASM_DIR_B_KONAMI) $(ASM_DIR_STREAM)
+C_DIRS_ALL		:= $(C_DIR_BOOT) $(C_DIR_BODYPROG) $(C_DIR_B_KONAMI) $(C_DIR_STREAM)
+BIN_DIRS_ALL	:= $(BIN_DIR_BOOT) $(BIN_DIR_BODYPROG) $(BIN_DIR_B_KONAMI) $(BIN_DIR_STREAM)
 
 # Tools
 PYTHON          := python3
@@ -89,7 +103,7 @@ OBJCOPY_FLAGS   := -O binary
 # Rules
 default: all
 
-all: dirs $(TARGET_BOOT) $(TARGET_BODYPROG) $(TARGET_B_KONAMI) check
+all: dirs $(TARGET_BOOT) $(TARGET_BODYPROG) $(TARGET_B_KONAMI) $(TARGET_STREAM) check
 
 check: $(TARGET_BOOT)
 	cat $(ROM_DIR)/sha1/$(MAIN_NAME).sha1
@@ -98,6 +112,8 @@ check: $(TARGET_BOOT)
 	sha1sum $(TARGET_BODYPROG)
 	cat $(ROM_DIR)/sha1/$(OVERLAY_B_KONAMI_NAME).sha1
 	sha1sum $(TARGET_B_KONAMI)
+	cat $(ROM_DIR)/sha1/$(OVERLAY_STREAM_NAME).sha1
+	sha1sum $(TARGET_STREAM)
 
 extract:
 	$(EXTRACT) $(GAME_NAME) $(IMAGE_DIR) $(ROM_DIR) $(ASSETS_DIR)
@@ -106,6 +122,7 @@ generate:
 	$(SPLAT) $(MAIN_NAME).yaml
 	$(SPLAT) $(OVERLAY_BODYPROG_NAME).yaml
 	$(SPLAT) $(OVERLAY_B_KONAMI_NAME).yaml
+	$(SPLAT) $(OVERLAY_STREAM_NAME).yaml
 
 dirs:
 	$(foreach dir,$(ASM_DIRS_ALL) $(C_DIRS_ALL) $(BIN_DIRS_ALL),$(shell mkdir -p $(BUILD_DIR)/$(dir)))
@@ -146,6 +163,13 @@ $(TARGET_B_KONAMI): $(TARGET_B_KONAMI).elf
 
 $(TARGET_B_KONAMI).elf: $(O_FILES_B_KONAMI)
 	$(LD) -Map $(TARGET_B_KONAMI).map -T linker/$(OVERLAY_B_KONAMI_NAME).ld -T meta/undefined_symbols_auto.b_konami.txt -T meta/undefined_functions_auto.b_konami.txt -T meta/undefined_symbols.b_konami.txt --no-check-sections -o $@
+
+# stream
+$(TARGET_STREAM): $(TARGET_STREAM).elf
+	$(OBJCOPY) $(OBJCOPY_FLAGS) $< $@
+
+$(TARGET_STREAM).elf: $(O_FILES_STREAM)
+	$(LD) -Map $(TARGET_STREAM).map -T linker/$(OVERLAY_STREAM_NAME).ld -T meta/undefined_symbols_auto.stream.txt -T meta/undefined_functions_auto.stream.txt -T meta/undefined_symbols.stream.txt --no-check-sections -o $@
 
 # generate objects
 $(BUILD_DIR)/%.i: %.c
