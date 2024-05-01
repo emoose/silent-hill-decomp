@@ -19,8 +19,8 @@ typedef struct
 	/* 0x00038 */ int width;
 	/* 0x0003C */ int height;
 	/* 0x00040 */ u_short imgbuf0[5760];
-	/* 0x2D40 */ u_short imgbuf1[5760];
-	/* 0x5A40 */ u_long sect_buff[11776];
+	/* 0x02D40 */ u_short imgbuf1[5760];
+	/* 0x05A40 */ u_long sect_buff[11776];
 	/* 0x11240 */ u_long vlcbuf0[14336];
 	/* 0x1F240 */ u_long vlcbuf1[14336];
 } MOVIE_STR;

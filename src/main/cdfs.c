@@ -1,6 +1,6 @@
 #include "common.h"
 
-// struct/names were included in certain SH releases
+// struct/fields/comments were included in certain SH releases
 typedef struct
 {
 	u_long  sector   :19;   // ＣＤ上でのセクタ番号

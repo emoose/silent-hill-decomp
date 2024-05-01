@@ -43,5 +43,10 @@ Once build has finished a folder will be produced with the name `build`, inside 
 ## Contributing
 Contributions are welcome. If you would like to reserve a function, open a PR with the function or file name(s).
 
-## Big TODOs
-Currently, capstone has no logic to disassemble GTE instructions (which are COP2 instructions,) and thus, these are interpreted as data. This means that any code that uses these are effectively not possible to decompile back into C (for now).
+## Contemporary Games
+Some similar Konami games from the same timeframe which may share code with SH, could be worth digging through prototypes/alternate releases:
+- (PSX) **International Track & Field** / **ITF 2000**: SH contains unused graphics from it & seems to share very similar overlay/data handling code, likely has more in common too.
+- (PS2) **ESPN International Track & Field**: sequel of the above with debug symbols available, seems to mostly be a C++ codebase, maybe a rewrite of the above, or a completely different engine.
+- (PSX) **beatmania APPEND 5thMIX**: uses similar movie player code to SH but doesn't appear to share much else.
+- (PSX) **Tokimeki Memorial \~forever with you\~**: earlier Konami PSX game, has partial debug symbols which unfortunately don't match its executable, making comparisons a bit harder.
+- (PS2) **Silent Hill 2**: the sequel, prototypes are available with debug symbols but code doesn't appear to share much in common with SH1, though shared dev team members may mean similar code conventions with it.
