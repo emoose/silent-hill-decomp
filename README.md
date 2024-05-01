@@ -50,3 +50,4 @@ Some similar Konami games from the same timeframe which may share code with SH, 
 - (PSX) **beatmania APPEND 5thMIX**: uses similar movie player code to SH but doesn't appear to share much else.
 - (PSX) **Tokimeki Memorial \~forever with you\~**: earlier Konami PSX game, has partial debug symbols which unfortunately don't match its executable, making comparisons a bit harder.
 - (PS2) **Silent Hill 2**: the sequel, prototypes are available with debug symbols but code doesn't appear to share much in common with SH1, though shared dev team members may mean similar code conventions with it.
+- (PSX) **Konami International Rally Racing**: unreleased game that contains .MAP & .SYM symbols, seems to share the Konami `SD` sound library with SH (albeit a slightly different/customized version)
