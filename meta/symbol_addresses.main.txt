@@ -40,8 +40,8 @@ FS_MemArena_set_80011F48 = 0x80011F48; // type:func // not totally sure
 memcpy = 0x80011F78; // type:func
 lcg_rand_800120B8 = 0x800120B8; // type:func
 lcg_rand15b_800120E4 = 0x800120E4; // type:func
-lcg_srand_80012104 = 0x80012104; // type:func
-lcg_srand_get_80012110 = 0x80012110; // type:func
+lcg_srand_get_80012104 = 0x80012104; // type:func
+lcg_srand_80012110 = 0x80012110; // type:func
 lcg_rand12b_8001211C = 0x8001211C; // type:func
 
 memcpy32 = 0x8001213C; // type:func

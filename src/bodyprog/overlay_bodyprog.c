@@ -160,11 +160,11 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032358);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800323C8);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032428);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GFX_Init_80032428);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800324F4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Settings_SetScreenXY_800324F4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032524);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Settings_SetDispEnvXY_80032524);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800325A4);
 
@@ -176,29 +176,29 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003289C);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032904);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032B80);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GFX_VSyncCallback_80032B80);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032BD0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032BF0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameFS_LoadTitleGfx_80032BF0);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032C20);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032C40);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameFS_LoadStreamBin_80032C40);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032C68);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameFS_LoadOptionBin_80032C68);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032CA8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameFS_LoadSaveLoadBin_80032CA8);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032CE8);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80032D1C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", MainLoopState0_80032D1C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameLoop_80032EE0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", MainLoop_80032EE0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003342C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Settings_RestoreDefaults_8003342C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80033480);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Settings_RestoreControlDefaults_80033480);
 
 void func_800334C8(void) {
 }
@@ -222,15 +222,15 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", JOY_ReadP1_80034450);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003446C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80034494);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", JOY_UpdateControllerData_80034494);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80034670);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", ControllerData_ConvertAnalogs_80034670);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003483C);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800348C0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800348E8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", MainLoopStateA_LoadScreen_800348E8);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80034964);
 
@@ -246,7 +246,7 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800350BC);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80035178);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003521C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameFS_LoadMap_8003521C);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003528C);
 
@@ -322,7 +322,7 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80037154);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80037188);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800371E8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Chara_UpdatePositionFromParams_800371E8);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80037334);
 
@@ -354,35 +354,35 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80038A6C);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80038B44);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80038BD4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", MainLoopStateB_InGame_80038BD4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80038F6C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameState0_Gameplay_80038F6C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800391E8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameStateE_GamePaused_800391E8);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80039344);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameState1_OptionsMenu_80039344);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003943C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80039568);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameState2_StatusMenu_80039568);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800395C0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", MainLoopState13_LoadStatusScreen_800395C0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800396D4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameState3_MapScreen_800396D4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003991C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", MainLoopState14_LoadMapScreen_8003991C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80039A58);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameState4_FMV_80039A58);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80039C40);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameState5and6_AreaLoad_80039C40);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80039F30);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", AreaLoad_UpdatePlayerPosition_80039F30);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80039F54);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80039F90);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80039FB8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameState7_ReadMessage_80039FB8);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003A120);
 
@@ -390,19 +390,19 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003A16C);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003A1F4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003A230);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameState8and9_SaveMenu_8003A230);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003A3C8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameStateA_MapEvent_8003A3C8);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003A460);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameStateB_8003A460);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003A4B4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameStateC_8003A4B4);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003A52C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", InGameStateD_GameOver_8003A52C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003AA4C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", MainLoopStateC_8003AA4C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003AB28);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", MainLoopState7_MainMenu_8003AB28);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003B550);
 
@@ -439,9 +439,9 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003BE28);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003BE50);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003BE6C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameFS_LoadBgEtcGfx_8003BE6C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003BE9C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameFS_LoadBgItem_8003BE9C);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003BED0);
 
@@ -552,7 +552,7 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003E544);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003E5E8);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003E710);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameFS_LoadFlameGfx_8003E710);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8003E740);
 
@@ -999,7 +999,7 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8004A8CC);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8004A8DC);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8004A8E8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GFX_DrawString_8004A8E8);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8004ACF4);
 
@@ -1047,7 +1047,7 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8004C564);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8004C8DC);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8004C9B0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", MainLoopStateE_StatusScreen_8004C9B0);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8004D1A0);
 
@@ -1093,7 +1093,7 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800539A4);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80053B08);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80053DA0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameFS_LoadTim00TIM_80053DA0);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80053DFC);
 
@@ -1371,7 +1371,7 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80066E40);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80066E7C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80066EB0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", MainLoopStateF_MapScreen_80066EB0);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80067914);
 
@@ -1721,7 +1721,7 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80080ED0);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80080F14);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80080FBC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameEnv_Update_80080FBC);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008123C);
 
@@ -2076,48 +2076,48 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008EF20);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F048);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F07C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_ReadData_8008F07C);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F0BC);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F13C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F1A0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_GameGlobalsUpdate_8008F1A0);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F2BC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_GameGlobalsRestore_8008F2BC);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F33C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_GameRandSeedUpdate_8008F33C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F370);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_GameRandSeedRestore_8008F370);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F398);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_Start_8008F398);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F3F0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_Stop_8008F3F0);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F434);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F470);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F4E4);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_ExitDemo_8008F4E4);
 
 void func_8008F518(void) {
 }
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F520);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F528);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_DemoRandSeedBackup_8008F528);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F560);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_DemoRandSeedRestore_8008F560);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F598);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_DemoRandSeedAdvance_8008F598);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F5D8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_Update_8008F5D8);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F7CC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_UpdateJoy_8008F7CC);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F87C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_UpdatePresentInterval_8008F87C);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F8A8);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", Demo_UpdateRandSeed_8008F8A8);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_8008F914);
 

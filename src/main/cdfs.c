@@ -137,9 +137,9 @@ u_long lcg_rand15b_800120E4()
 	return lcg_rand_800120B8() >> 17;
 }
 
-INCLUDE_ASM("asm/main/nonmatchings/cdfs", lcg_srand_80012104);
+INCLUDE_ASM("asm/main/nonmatchings/cdfs", lcg_srand_get_80012104);
 
-INCLUDE_ASM("asm/main/nonmatchings/cdfs", lcg_srand_get_80012110);
+INCLUDE_ASM("asm/main/nonmatchings/cdfs", lcg_srand_80012110);
 
 u_long lcg_rand12b_8001211C()
 {
