@@ -57,17 +57,17 @@ int strNextVlc(DECENV *dec);
 u_long *strNext(DECENV *dec);
 void strSync(DECENV *dec, int mode);
 
-INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", func_801E2654);
+INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", MainLoopState3_MovieIntroStart_801E2654);
 
-INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", func_801E279C);
+INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", MainLoopState6_Movie_PlayIntro_801E279C);
 
-INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", func_801E2838);
+INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", MainLoopState9_Movie_PlayOpening_801E2838);
 
-INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", func_801E28B0);
+INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", MainLoopStateD_ReturnToGame_801E28B0);
 
-INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", func_801E2908);
+INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", MainLoopState11_Movie_PlayEnding_801E2908);
 
-INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", func_801E2A24);
+INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", MainLoopState5_Movie_PlayIntroAlternate_801E2A24);
 
 INCLUDE_ASM("asm/stream/nonmatchings/overlay_stream", open_main);
 

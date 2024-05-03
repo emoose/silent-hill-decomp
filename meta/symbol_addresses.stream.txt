@@ -1,46 +1,54 @@
+// Called by games main loop
+MainLoopState3_MovieIntroStart_801E2654 = 0x801E2654; // type:func
+MainLoopState6_Movie_PlayIntro_801E279C = 0x801E279C; // type:func
+MainLoopState9_Movie_PlayOpening_801E2838 = 0x801E2838; // type:func
+MainLoopStateD_ReturnToGame_801E28B0 = 0x801E28B0; // type:func
+MainLoopState11_Movie_PlayEnding_801E2908 = 0x801E2908; // type:func
+MainLoopState5_Movie_PlayIntroAlternate_801E2A24 = 0x801E2A24; // type:func
+
 // beatmania MOVIESYS names, which seems based on PSX SDK sample code
 // (MOVIESYS seems closer to SH1 than the SDK code)
-open_main = 0x801e2aa4;
-movie_main = 0x801e2b9c;
-strSetDefDecEnv = 0x801e2f8c;
-strInit = 0x801e300c;
-strCallback = 0x801e307c;
-strKickCD = 0x801e31cc;
-strNextVlc = 0x801e3298;
-strNext = 0x801e331c;
-strSync = 0x801e3438;
+open_main = 0x801e2aa4; // type:func
+movie_main = 0x801e2b9c; // type:func
+strSetDefDecEnv = 0x801e2f8c; // type:func
+strInit = 0x801e300c; // type:func
+strCallback = 0x801e307c; // type:func
+strKickCD = 0x801e31cc; // type:func
+strNextVlc = 0x801e3298; // type:func
+strNext = 0x801e331c; // type:func
+strSync = 0x801e3438; // type:func
 // MOVIESYS globals
 max_frame = 0x801E3F40;
 frame_cnt = 0x801E3F44;
 m = 0x801F50E0;
 
 // dscb.o
-DsSyncCallback = 0x801e34cc;
-DsReadyCallback = 0x801e34e0;
-DsStartCallback = 0x801e34f4;
-DsDataCallback = 0x801e3508;
+DsSyncCallback = 0x801e34cc; // type:func
+DsReadyCallback = 0x801e34e0; // type:func
+DsStartCallback = 0x801e34f4; // type:func
+DsDataCallback = 0x801e3508; // type:func
 // dscb.o globals
 GlobalCallback = 0x801F50E8;
 
 // libpress.o
-DecDCTReset = 0x801e352c;
-DecDCTGetEnv = 0x801e3560;
-DecDCTPutEnv = 0x801e35ec;
-DecDCTBufSize = 0x801e3684;
-DecDCTin = 0x801e3690;
-DecDCTout = 0x801e370c;
-DecDCTinSync = 0x801e372c;
-DecDCToutSync = 0x801e3768;
-DecDCTinCallback = 0x801e37a4;
-DecDCToutCallback = 0x801e37c8;
-MDEC_reset = 0x801e37ec;
-MDEC_in = 0x801e38dc;
-MDEC_out = 0x801e396c;
-MDEC_in_sync = 0x801e39f8;
-MDEC_out_sync = 0x801e3a8c;
-MDEC_status = 0x801e3b20;
-timeout = 0x801e3b38;
+DecDCTReset = 0x801e352c; // type:func
+DecDCTGetEnv = 0x801e3560; // type:func
+DecDCTPutEnv = 0x801e35ec; // type:func
+DecDCTBufSize = 0x801e3684; // type:func
+DecDCTin = 0x801e3690; // type:func
+DecDCTout = 0x801e370c; // type:func
+DecDCTinSync = 0x801e372c; // type:func
+DecDCToutSync = 0x801e3768; // type:func
+DecDCTinCallback = 0x801e37a4; // type:func
+DecDCToutCallback = 0x801e37c8; // type:func
+MDEC_reset = 0x801e37ec; // type:func
+MDEC_in = 0x801e38dc; // type:func
+MDEC_out = 0x801e396c; // type:func
+MDEC_in_sync = 0x801e39f8; // type:func
+MDEC_out_sync = 0x801e3a8c; // type:func
+MDEC_status = 0x801e3b20; // type:func
+timeout = 0x801e3b38; // type:func
 
 // vlc.o
-DecDCTvlcSize = 0x801e3bbc;
-DecDCTvlc = 0x801e3bec;
+DecDCTvlcSize = 0x801e3bbc; // type:func
+DecDCTvlc = 0x801e3bec; // type:func

@@ -17,37 +17,37 @@ extern FILE_INFO file_info[];
 extern char* path_name_p[];
 extern char* ext_name_p[];
 
-u_long FS_GetFileSize_80010B24(int file_index);
-u_long FSEntry_GetFilePath_80010B88(char* path, FILE_INFO* file_info);
-u_long FS_GetFilePath_80010B54(char* path, int file_index);
-u_long FS_GetFileSizeAligned_80010CD4(int file_index);
+u_long FS_FileGetSize_80010B24(int file_index);
+u_long FSEntry_FileGetPath_80010B88(char* path, FILE_INFO* file_info);
+u_long FS_FileGetPath_80010B54(char* path, int file_index);
+u_long FS_FileGetSizeAligned_80010CD4(int file_index);
 
-u_long FS_ReadFileEx_80011074(int file_index, char a2, char a3, char a4, void* a5, void *a6, s32 *a7);
+u_long FS_FileReadEx_80011074(int file_index, char a2, char a3, char a4, void* a5, void *a6, s32 *a7);
 
-u_long FS_GetFileSize_80010B24(int file_index)
+u_long FS_FileGetSize_80010B24(int file_index)
 {
 	return file_info[file_index].size * 256;
 }
 
-u_long FS_GetFilePath_80010B54(char* path, int file_index)
+u_long FS_FileGetPath_80010B54(char* path, int file_index)
 {
-	return FSEntry_GetFilePath_80010B88(path, &file_info[file_index]);
+	return FSEntry_FileGetPath_80010B88(path, &file_info[file_index]);
 }
 
-INCLUDE_ASM("asm/main/nonmatchings/cdfs", FSEntry_GetFilePath_80010B88);
+INCLUDE_ASM("asm/main/nonmatchings/cdfs", FSEntry_FileGetPath_80010B88);
 
-INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_CompressFileName_80010C60);
+INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_FileNameCompress_80010C60);
 
-u_long FS_GetFileSizeAligned_80010CD4(int file_index)
+u_long FS_FileGetSizeAligned_80010CD4(int file_index)
 {
 	// returns size rounded to sectors?
 	u_long size = file_info[file_index].size * 256;
 	return (size + 2047) & ~0x7FF;
 }
 
-INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_SearchNextInDir_80010D0C);
+INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_DirSearchNext_80010D0C);
 
-INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_SearchFile_80010D80);
+INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_FileSearch_80010D80);
 
 INCLUDE_ASM("asm/main/nonmatchings/cdfs", func_80010E58);
 
@@ -57,18 +57,18 @@ INCLUDE_ASM("asm/main/nonmatchings/cdfs", func_80010E84);
 
 INCLUDE_ASM("asm/main/nonmatchings/cdfs", func_80010ECC);
 
-INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_PreloadFile_80010F34);
+INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_FilePreload_80010F34);
 
-u_long FS_ReadFile_80010F68(int file_index, void* buffer)
+u_long FS_FileRead_80010F68(int file_index, void* buffer)
 {
-	return FS_ReadFileEx_80011074(file_index, 2, 0, 0, buffer, 0, 0);
+	return FS_FileReadEx_80011074(file_index, 2, 0, 0, buffer, 0, 0);
 }
 
-INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_ReadTIM_80010F9C);
+INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_FileReadTIM_80010F9C);
 
 INCLUDE_ASM("asm/main/nonmatchings/cdfs", func_80011018);
 
-INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_ReadFileEx_80011074);
+INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_FileReadEx_80011074);
 
 INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_Reset_80011170);
 

@@ -1,18 +1,18 @@
 main = 0x80010770; // type:func
 
-Overlay_DecryptData_80010AD0 = 0x80010AD0; // type:func
-FS_GetFileSize_80010B24 = 0x80010B24; // type:func
-FSEntry_GetFilePath_80010B88 = 0x80010B88; // type:func
-FS_GetFilePath_80010B54 = 0x80010B54; // type:func
-FS_GetFileSizeAligned_80010CD4 = 0x80010CD4; // type:func
-FS_CompressFileName_80010C60 = 0x80010C60; // type:func // returns name0123 / name4567, takes char*
-FS_SearchNextInDir_80010D0C = 0x80010D0C; // type:func // path index / offset / search-direction
-FS_SearchFile_80010D80 = 0x80010D80; // type:func // takes char*, path/extension idx(?), start-num
+Overlay_DataDecrypt_80010AD0 = 0x80010AD0; // type:func
+FS_FileGetSize_80010B24 = 0x80010B24; // type:func
+FSEntry_FileGetPath_80010B88 = 0x80010B88; // type:func
+FS_FileGetPath_80010B54 = 0x80010B54; // type:func
+FS_FileGetSizeAligned_80010CD4 = 0x80010CD4; // type:func
+FS_FileNameCompress_80010C60 = 0x80010C60; // type:func // returns name0123 / name4567, takes char*
+FS_DirSearchNext_80010D0C = 0x80010D0C; // type:func // path index / offset / search-direction
+FS_FileSearch_80010D80 = 0x80010D80; // type:func // takes char*, path/extension idx(?), start-num
 FS_NumInProgress_80010E68 = 0x80010E68; // type:func
-FS_PreloadFile_80010F34 = 0x80010F34; // type:func // unsure
-FS_ReadFile_80010F68 = 0x80010F68; // type:func
-FS_ReadTIM_80010F9C = 0x80010F9C; // type:func
-FS_ReadFileEx_80011074 = 0x80011074; // type:func
+FS_FilePreload_80010F34 = 0x80010F34; // type:func // unsure
+FS_FileRead_80010F68 = 0x80010F68; // type:func
+FS_FileReadTIM_80010F9C = 0x80010F9C; // type:func
+FS_FileReadEx_80011074 = 0x80011074; // type:func
 FS_Reset_80011170 = 0x80011170; // type:func
 FS_Update_80011260 = 0x80011260; // type:func
 
