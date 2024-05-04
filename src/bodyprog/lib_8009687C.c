@@ -1,10 +1,10 @@
 #include "common.h"
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/lib_8009687C", func_8009687C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/lib_8009687C", shRsin);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/lib_8009687C", func_8009689C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/lib_8009687C", shRcos);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/lib_8009687C", func_800968BC);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/lib_8009687C", shRotMatrixZ);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/lib_8009687C", func_80096A5C);
 

@@ -44,7 +44,7 @@ Once build has finished a folder will be produced with the name `build`, inside 
 Contributions are welcome. If you would like to reserve a function, open a PR with the function or file name(s).
 
 ### Naming Conventions
-If a name is already known (eg. from some kind of SDK library or symbols of another title) that name should just be used, but guesses for names should follow the conventions below.
+If a name is already known (eg. from some kind of SDK library or symbols of another title) that name should be used, but guesses for names should try to follow the conventions below.
 
 #### Functions
 Function names should be written in CamelCase, and try to follow the format:
@@ -77,7 +77,8 @@ Structures themselves should be named according to their usage, but if the usage
 ## Contemporaries
 Konami games from the same timeframe may share code with SH, could be worth digging through prototypes/alternate releases:
 -  **Tokimeki Memorial \~forever with you\~**: has partial debug symbols which unfortunately don't match its executable, making any comparisons a bit harder.
--  **beatmania APPEND 5thMIX**: uses similar movie player code but doesn't appear to share much else, contains a Konami `SD` sound library that's completely different to the one used in SH.
+-  **beatmania APPEND 5thMIX**: partial source available, uses similar movie player code but doesn't appear to share much else, contains a Konami `SD` sound library that's completely different to the one used in SH.
+-  **Pachinko Dream**: source available, doesn't appear to share much (if anything) with SH, but seems to employ similar "SYS_W" structures holding things like current game state index.
 -  **International Track & Field** / **ITF2000**: SH contains unused graphics from it & seems to share very similar overlay/data handling code, likely has more in common too.
 -  **Konami International Rally Racing**: unreleased game that contains MAP/SYM symbols, shares the same `SD` sound library as SH (albeit a slightly different version)
 -  **ESPN International Track & Field (PS2)**: sequel of ITF2000 with debug symbols available, seems to mostly be a C++ codebase, maybe a rewrite, or a completely different engine.

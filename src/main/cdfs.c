@@ -49,11 +49,11 @@ INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_DirSearchNext_80010D0C);
 
 INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_FileSearch_80010D80);
 
-INCLUDE_ASM("asm/main/nonmatchings/cdfs", func_80010E58);
+INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_IsFileHndLoadedIn_80010E58);
 
 INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_NumInProgress_80010E68);
 
-INCLUDE_ASM("asm/main/nonmatchings/cdfs", func_80010E84);
+INCLUDE_ASM("asm/main/nonmatchings/cdfs", FS_IsAllLoaded_80010E84);
 
 INCLUDE_ASM("asm/main/nonmatchings/cdfs", func_80010ECC);
 
