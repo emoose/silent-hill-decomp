@@ -48,6 +48,13 @@ segments:
     subsegments:
       - [0x0, rodata]
       - [0x9ad0, c, overlay_bodyprog]
+      - [0x1b4ec, c, view/vc_util]
+      - [0x1bf04, c, overlay_bodyprog_80040A64]
+      - [0x23ed8, c, view/vw_main]
+      - [0x243c8, c, view/vw_calc] # contains part of vb_main?
+      - [0x25d1c, c, overlay_bodyprog_8004A87C]
+      - [0x5bde0, c, view/vc_main]
+      - [0x61218, c, overlay_bodyprog_80085D78]
       - [0x6cf9c, c, psxsdk/libapi/a09]
       - [0x6cfac, c, psxsdk/libapi/a11]
       - [0x6cfbc, c, psxsdk/libapi/a39]
@@ -199,7 +206,7 @@ segments:
       - [0x79048, c, psxsdk/libspu/s_n2p]
       - [0x79248, c, psxsdk/libspu/s_gva]
       - [0x79638, c, lib_8009E198]
-      - [0x7a244, c, libsd/sdmain] # libsd names likely aren't accurate since konami rally symbols didn't include object names
+      - [0x7a244, c, libsd/sdmain] # libsd filenames likely aren't accurate since konami rally symbols didn't include object names
       - [0x7d734, c, libsd/ssmain]
       - [0x7d7fc, c, psxsdk/libspu/s_q]
       - [0x7d87c, c, psxsdk/libapi/a13]

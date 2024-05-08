@@ -2,14 +2,125 @@ MainLoop_NumFrames = 0x800B9CCC;
 CurOTNum = 0x800B9FB8;
 GameWork = 0x800B9FC0;
 SysWork = 0x800BC728; // SYS_W struct?
+pSysWork = 0x80024D44;
 
 // these are actually part of SysWork?
 JoyPadBuff_tmp_P1 = 0x800BCCDC;
 JoyPadBuff_tmp_P2 = 0x800BC78C;
 JoyPadBuff_P1 = 0x800BC760; // type:s64
 
-Camera_DebugRotation = 0x800BCDF8;
-Camera_DebugMode = 0x800BE9F4;
+FixedPoint_CurDeltaTime = 0x800B5CC0; // type:s32 - Q20.12 fixed point decimal, usually 0x44 (0.0166..) or 0x88 (0.033..)
+
+// sh "view" / "vw" / "vc" / "vb" code
+// most names from SH2, functions seem to match pretty close between it and SH1, besides a few missing/added funcs
+// (SH2 also uses floating point numbers while SH1 uses fixed-point Q20.12)
+vcInitCamera = 0x8004004c; // type:func
+vcSetCameraUseWarp = 0x800400d4; // type:func
+vcRetCamMvSmoothF = 0x80040190; // type:func
+vcSetEvCamRate_800401C0 = 0x800401c0; // type:func guessed name
+vcMoveAndSetCamera = 0x800401ec; // type:func
+vcMakeHeroHeadPos = 0x8004047c; // type:func
+vcAddOfsToPos = 0x80040518; // type:func
+vcSetRefPosAndSysRef2CamParam = 0x800405c4; // type:func
+vcSetRefPosAndCamPosAngByPad = 0x800406d4; // type:func
+
+vwInitViewInfo = 0x80048a38; // type:func
+vwGetViewCoord_80048A90 = 0x80048a90; // type:func guessed name
+vwGetViewPosition = 0x80048a9c; // type:func
+vwGetViewAngle = 0x80048ac4; // type:func
+vwSetCoordRefAndEntou = 0x80048be0; // type:func
+vwSetViewInfoDirectMatrix = 0x80048cf0; // type:func
+vwSetViewInfo = 0x80048d48; // type:func
+vwRenewalXZVelocityToTargetPos = 0x80048f28; // type:func
+vwLimitOverLimVector = 0x8004914c; // type:func
+vwDecreaseSideOfVector = 0x80049228; // type:func
+vwRetNewVelocityToTargetVal = 0x80049388; // type:func
+vwRetNewAngSpdToTargetAng = 0x80049464; // type:func
+vwMatrixToAngleYXZ = 0x800495d4; // type:func
+vbSetWorldScreenMatrix = 0x800497e4; // type:func
+vbSetRefView = 0x800498d8; // type:func
+vwAngleToVector = 0x8004A66C; // type:func
+vwVectorToAngle = 0x8004A714; // type:func
+vwOresenHokan = 0x8004A7C8; // type:func
+
+Math_MulFixed_800808D4 = 0x800808d4; // type:func guessed name
+
+vcInitVCSystem = 0x80080940; // type:func
+vcStartCameraSystem = 0x800809dc; // type:func
+vcEndCameraSystem_80080A04 = 0x80080a04; // type:func guessed name
+vcSetFirstCamWork = 0x80080a4c; // type:func
+vcWorkSetFlags_80080BF8 = 0x80080bf8; // type:func guessed name
+vcUserWatchTarget = 0x80080c2c; // type:func
+vcUserCamTarget = 0x80080cbc; // type:func
+vcChangeProjectionValue_80080D5C = 0x80080d5c; // type:func guessed name (exists in SH2 but code is different)
+vcGetNowWatchPos = 0x80080d78; // type:func
+vcGetNowCamPos = 0x80080ea8; // type:func
+vcReturnPreAutoCamWork = 0x80080ed0; // type:func
+vcSetSubjChara = 0x80080f14; // type:func
+vcExecCamera = 0x80080fbc; // type:func
+vcSetAllNpcDeadTimer = 0x8008123c; // type:func
+vcRetSmoothCamMvF = 0x800812cc; // type:func
+vcRetCurCamMvType = 0x80081428; // type:func
+vcRetThroughDoorCamEndF = 0x800815f0; // type:func
+vcRetFarWatchRate = 0x800816b0; // type:func
+vcRetSelfViewEffectRate = 0x800818d4; // type:func
+vcSetFlagsByCamMvType = 0x80081a0c; // type:func
+vcPreSetDataInVC_WORK = 0x80081b6c; // type:func
+vcSetTHROUGH_DOOR_CAM_PARAM_in_VC_WORK = 0x80081cbc; // type:func
+vcSetNearestEnemyDataInVC_WORK = 0x80081d90; // type:func
+vcSetNearRoadAryByCharaPos = 0x80081fbc; // type:func
+vcRetRoadUsePriority = 0x8008227c; // type:func
+vcSetCurNearRoadInVC_WORK = 0x800822b8; // type:func
+vcGetBestNewCurNearRoad = 0x800826ac; // type:func
+vcGetNearestNEAR_ROAD_DATA = 0x80082908; // type:func
+vcAdvantageDistOfOldCurRoad = 0x80082ad0; // type:func
+vcAutoRenewalWatchTgtPosAndAngZ = 0x80082b10; // type:func
+vcMakeNormalWatchTgtPos = 0x80082c58; // type:func
+vcMixSelfViewEffectToWatchTgtPos = 0x80082df4; // type:func
+vcMakeFarWatchTgtPos = 0x800832b4; // type:func
+vcSetWatchTgtXzPos = 0x800834a8; // type:func
+vcSetWatchTgtYParam = 0x800835c0; // type:func
+vcAdjustWatchYLimitHighWhenFarView = 0x800835e0; // type:func
+vcAutoRenewalCamTgtPos = 0x800836e8; // type:func
+vcRetMaxTgtMvXzLen = 0x8008395c; // type:func
+vcMakeIdealCamPosByHeadPos = 0x800839cc; // type:func
+vcMakeIdealCamPosForFixAngCam = 0x80083ad8; // type:func
+vcMakeIdealCamPosForThroughDoorCam = 0x80083d28; // type:func
+vcMakeIdealCamPosUseVC_ROAD_DATA = 0x80083f30; // type:func
+vcAdjustXzInLimAreaUsingMIN_IN_ROAD_DIST = 0x80084210; // type:func
+vcMakeBasicCamTgtMvVec = 0x800842c0; // type:func
+vcAdjTgtMvVecYByCurNearRoad = 0x800843f4; // type:func
+vcCamTgtMvVecIsFlipedFromCharaFront = 0x800845d0; // type:func
+vcFlipFromCamExclusionArea = 0x800848ac; // type:func
+vcGetUseWatchAndCamMvParam = 0x80084a34; // type:func
+vcRenewalCamData = 0x80084bd8; // type:func
+vcRenewalCamMatAng = 0x80084d54; // type:func
+vcMakeNewBaseCamAng = 0x80084ed8; // type:func
+vcRenewalBaseCamAngAndAdjustOfsCamAng = 0x800851b0; // type:func
+vcMakeOfsCamTgtAng = 0x800852c8; // type:func
+vcMakeOfsCam2CharaBottomAndTopAngByBaseMatT = 0x80085358; // type:func
+vcAdjCamOfsAngByCharaInScreen = 0x80085460; // type:func
+vcAdjCamOfsAngByOfsAngSpd = 0x8008555c; // type:func
+vcMakeCamMatAndCamAngByBaseAngAndOfsAng = 0x800857ec; // type:func
+vcSetDataToVwSystem = 0x80085884; // type:func
+vcCamMatNoise = 0x80085a7c; // type:func
+SQRT_80085B1C = 0x80085b1c; // type:func guessed name
+vcGetXZSumDistFromLimArea = 0x80085c80; // type:func
+
+// vw globals
+vcNullRoadArray = 0x800A8F44; // _VC_ROAD_DATA[2]
+vcNullNearRoad = 0x800AFC94; // _VC_NEAR_ROAD_DATA
+deflt_watch_mv_prm = 0x800AFCB8; // _VC_WATCH_MV_PARAM
+self_view_watch_mv_prm = 0x800AFCC4; // _VC_WATCH_MV_PARAM
+cam_mv_prm_user = 0x800AFCD0; // _VC_CAM_MV_PARAM
+excl_r_ary = 0x800AFCE0; // int[9]
+vcWork = 0x800B9CD0; // _VC_WORK
+vcRefPosSt = 0x800BCDF8; // VECTOR3
+vcCameraInternalInfo = 0x800BE9F4; // _VC_CAMERA_INTINFO
+vwViewPointInfo = 0x800C37E0; // _VW_VIEW_WORK
+VbWvsMatrix = 0x800C3888; // MATRIX
+vcWatchMvPrmSt = 0x800C4630; // _VC_WATCH_MV_PARAM
+vcSelfViewTimer = 0x800C463C; // int
 
 SD_VolumeSE = 0x800C1684;
 SD_VolumeBGM = 0x800C1685;
@@ -37,10 +148,12 @@ MainLoop_80032EE0 = 0x80032ee0; // type:func
 Settings_ScreenAndVolUpdate_800333CC = 0x800333CC; // type:func
 Settings_RestoreDefaults_8003342C = 0x8003342c; // type:func
 Settings_RestoreControlDefaults_80033480 = 0x80033480; // type:func
+nullsub_800334C8 = 0x800334C8; // type:func
 GameWork_Clear_800340E0 = 0x800340E0; // type:func
 MainLoop_ShouldWarmReset_80034108 = 0x80034108; // type:func
 Game_WarmBoot_80034264 = 0x80034264; // type:func
 JOY_Init_8003441C = 0x8003441c; // type:func
+JOY_Update_8003446C = 0x8003446C; // type:func
 JOY_ReadP1_80034450 = 0x80034450; // type:func
 JOY_ControllerDataUpdate_80034494 = 0x80034494; // type:func
 ControllerData_AnalogToDigital_80034670 = 0x80034670; // type:func
@@ -70,9 +183,6 @@ GameFS_BgEtcGfxLoad_8003BE6C = 0x8003be6c; // type:func
 GameFS_BgItemLoad_8003BE9C = 0x8003be9c; // type:func
 GameFS_FlameGfxLoad_8003E710 = 0x8003e710; // type:func
 
-Camera_DoUpdate_800401EC = 0x800401EC; // type:func - might just be debug related update func
-Camera_DebugControl_800406D4 = 0x800406D4; // type:func
-
 SD_EngineCmd_80045A7C = 0x80045A7C; // type:func
 SD_DriverInit_80045DD4 = 0x80045DD4; // type:func
 SD_SetVolume_80047798 = 0x80047798; // type:func
@@ -87,7 +197,6 @@ GFX_StringDraw_8004A8E8 = 0x8004a8e8; // type:func
 MainLoopStateE_StatusScreen_8004C9B0 = 0x8004c9b0; // type:func
 GameFS_Tim00TIMLoad_80053DA0 = 0x80053da0; // type:func
 MainLoopStateF_MapScreen_80066EB0 = 0x80066eb0; // type:func
-GameEnv_Update_80080FBC = 0x80080fbc; // type:func
 
 Chara_Load_80088C7C = 0x80088C7C; // type:func
 Chara_Spawn_80088D78 = 0x80088D78; // type:func

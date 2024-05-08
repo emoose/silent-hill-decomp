@@ -35,7 +35,7 @@ O_FILES_BOOT	:= $(foreach file,$(S_FILES_BOOT),$(BUILD_DIR)/$(file).o) \
 					$(foreach file,$(BIN_FILES_BOOT),$(BUILD_DIR)/$(file).o)
 
 ASM_DIR_BODYPROG	:= asm/bodyprog asm/bodyprog/data
-C_DIR_BODYPROG		:= src/bodyprog src/bodyprog/libsd src/bodyprog/psxsdk/libapi src/bodyprog/psxsdk/libc src/bodyprog/psxsdk/libcard src/bodyprog/psxsdk/libcd src/bodyprog/psxsdk/libgpu src/bodyprog/psxsdk/libgs src/bodyprog/psxsdk/libgte src/bodyprog/psxsdk/libpad src/bodyprog/psxsdk/libspu
+C_DIR_BODYPROG		:= src/bodyprog src/bodyprog/view src/bodyprog/libsd src/bodyprog/psxsdk/libapi src/bodyprog/psxsdk/libc src/bodyprog/psxsdk/libcard src/bodyprog/psxsdk/libcd src/bodyprog/psxsdk/libgpu src/bodyprog/psxsdk/libgs src/bodyprog/psxsdk/libgte src/bodyprog/psxsdk/libpad src/bodyprog/psxsdk/libspu
 BIN_DIR_BODYPROG	:= assets/bodyprog
 
 S_FILES_BODYPROG	:= $(foreach dir,$(ASM_DIR_BODYPROG),$(wildcard $(dir)/*.s))

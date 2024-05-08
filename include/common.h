@@ -9,5 +9,6 @@
 #include <psxsdk/libgte.h>
 #include <psxsdk/libgpu.h>
 #include <psxsdk/libpress.h>
+#include <psxsdk/libsnd.h>
 
 #endif
