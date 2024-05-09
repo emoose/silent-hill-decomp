@@ -212,7 +212,7 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_800334D8);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", func_80033548);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", GameWork_Clear_800340E0);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", SysWork_Clear_800340E0);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/overlay_bodyprog", MainLoop_ShouldWarmReset_80034108);
 

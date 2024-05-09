@@ -1,10 +1,10 @@
 MainLoop_NumFrames = 0x800B9CCC;
 CurOTNum = 0x800B9FB8;
-GameWork = 0x800B9FC0;
-SysWork = 0x800BC728; // SYS_W struct?
-pSysWork = 0x80024D44;
+SysWork = 0x800B9FC0; // type:SYS_W size:0x2768 - SYS_W struct?
+GameSys = 0x800BC728; // type:SH_SYS size:0x5D8 - SH_SYS? SH2_SYS in sh2
+pGameSys = 0x80024D44; // type:u32 SH_SYS* ?
 
-// these are actually part of SysWork?
+// these are actually part of GameSys?
 JoyPadBuff_tmp_P1 = 0x800BCCDC;
 JoyPadBuff_tmp_P2 = 0x800BC78C;
 JoyPadBuff_P1 = 0x800BC760; // type:s64
@@ -104,7 +104,7 @@ vcAdjCamOfsAngByOfsAngSpd = 0x8008555c; // type:func
 vcMakeCamMatAndCamAngByBaseAngAndOfsAng = 0x800857ec; // type:func
 vcSetDataToVwSystem = 0x80085884; // type:func
 vcCamMatNoise = 0x80085a7c; // type:func
-SQRT_80085B1C = 0x80085b1c; // type:func guessed name
+Math_VectorMagnitude_80085B1C = 0x80085b1c; // type:func guessed name
 vcGetXZSumDistFromLimArea = 0x80085c80; // type:func
 
 // vw globals
@@ -149,7 +149,7 @@ Settings_ScreenAndVolUpdate_800333CC = 0x800333CC; // type:func
 Settings_RestoreDefaults_8003342C = 0x8003342c; // type:func
 Settings_RestoreControlDefaults_80033480 = 0x80033480; // type:func
 nullsub_800334C8 = 0x800334C8; // type:func
-GameWork_Clear_800340E0 = 0x800340E0; // type:func
+SysWork_Clear_800340E0 = 0x800340E0; // type:func
 MainLoop_ShouldWarmReset_80034108 = 0x80034108; // type:func
 Game_WarmBoot_80034264 = 0x80034264; // type:func
 JOY_Init_8003441C = 0x8003441c; // type:func

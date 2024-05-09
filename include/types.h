@@ -56,4 +56,13 @@ typedef unsigned int u_int;
 typedef unsigned long u_long;
 #endif
 
+// lightly modified VECTOR with padding int removed, seems used through a lot of SH code
+typedef struct {
+	long	vx, vy;
+	long	vz;
+} VECTOR3;
+
+// helper typedef to signal fixed point numbers
+typedef int Fixed32;
+
 #endif

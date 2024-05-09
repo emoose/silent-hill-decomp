@@ -132,6 +132,6 @@ INCLUDE_ASM("asm/bodyprog/nonmatchings/view/vc_main", vcSetDataToVwSystem);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/view/vc_main", vcCamMatNoise);
 
-INCLUDE_ASM("asm/bodyprog/nonmatchings/view/vc_main", SQRT_80085B1C);
+INCLUDE_ASM("asm/bodyprog/nonmatchings/view/vc_main", Math_VectorMagnitude_80085B1C);
 
 INCLUDE_ASM("asm/bodyprog/nonmatchings/view/vc_main", vcGetXZSumDistFromLimArea);
