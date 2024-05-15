@@ -105,18 +105,23 @@ OBJCOPY_FLAGS   := -O binary
 # Rules
 default: all
 
-all: dirs $(TARGET_BOOT) $(TARGET_BODYPROG) $(TARGET_B_KONAMI) $(TARGET_STREAM) check
+all: dirs $(TARGET_BOOT) $(TARGET_BODYPROG) $(TARGET_B_KONAMI) $(TARGET_STREAM) check expected
 
 check: dirs $(TARGET_BOOT) $(TARGET_BODYPROG) $(TARGET_B_KONAMI) $(TARGET_STREAM)
 	sha1sum --check $(ROM_DIR)/sha1/$(MAIN_NAME).sha1
 	sha1sum --check $(ROM_DIR)/sha1/$(OVERLAY_BODYPROG_NAME).sha1
 	sha1sum --check $(ROM_DIR)/sha1/$(OVERLAY_B_KONAMI_NAME).sha1
 	sha1sum --check $(ROM_DIR)/sha1/$(OVERLAY_STREAM_NAME).sha1
-	# No errors from the above, copying build results into expected folder
+	# SHA1 checks passed, built files match
+	
+expected: check
+	# Copying build results into "expected" folder
 	cp -r build/src expected/build/src
 	cp -r build/asm expected/build/asm
-	# Future function changes can be diffed via
-	#  python3 tools/asm-differ/diff.py -mwo --overlay bodyprog vcRetRoadUsePriority
+	# Future function changes can be diffed via:
+	#  python3 tools/asm-differ/diff.py -mwo --overlay bodyprog vcRetMaxTgtMvXzLen
+	# To try and decompile a function with M2C:
+	#  python3 tools/decompile.py vcRetMaxTgtMvXzLen
 
 extract:
 	$(EXTRACT) $(GAME_NAME) $(IMAGE_DIR) $(ROM_DIR) $(ASSETS_DIR)

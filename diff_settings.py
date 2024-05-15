@@ -22,7 +22,7 @@ def apply_bodyprog(config, args):
 
 def apply(config, args):
     overlay = args.overlay or "SLUS_007.07"
-    if overlay == "SLUS_007.07":
+    if overlay == "SLUS_007.07" or overlay == "main":
         apply_main(config, args)
     else:
         if overlay == "bodyprog":
