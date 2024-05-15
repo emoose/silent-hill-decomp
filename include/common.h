@@ -1,5 +1,5 @@
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef _COMMON_H_
+#define _COMMON_H_
 
 #include "include_asm.h"
 #include "types.h"
@@ -12,4 +12,6 @@
 #include <psxsdk/libpress.h>
 #include <psxsdk/libsnd.h>
 
-#endif
+#include "game.h"
+
+#endif /* _COMMON_H_ */
