@@ -82,12 +82,11 @@ CROSS			:= mips-linux-gnu
 AS              := $(CROSS)-as -EL
 LD              := $(CROSS)-ld -EL
 OBJCOPY         := $(CROSS)-objcopy
-CC_PSYQ_36     	:= $(WINE) $(TOOLS_DIR)/psyq/3.6/CC1PSX.EXE # 2.7.2.SN.1
-CC_PSYQ_41      := $(WINE) $(TOOLS_DIR)/psyq/4.1/CC1PSX.EXE	# cygnus-2.7.2-970404
-CC_PSYQ_43      := $(WINE) $(TOOLS_DIR)/psyq/4.3/CC1PSX.EXE # 2.8.1 SN32
-CC_PSYQ_46      := $(WINE) $(TOOLS_DIR)/psyq/4.6/CC1PSX.EXE # 2.95
-#CC              := $(TOOLS_DIR)/psyq/272/cc1 # Native 2.7.2
-CC		:= $(CC_PSYQ_43)
+#CC_PSYQ_36     	:= $(WINE) $(TOOLS_DIR)/psyq/3.6/CC1PSX.EXE # 2.7.2.SN.1
+#CC_PSYQ_41      := $(WINE) $(TOOLS_DIR)/psyq/4.1/CC1PSX.EXE	# cygnus-2.7.2-970404
+#CC_PSYQ_43      := $(WINE) $(TOOLS_DIR)/psyq/4.3/CC1PSX.EXE # 2.8.1 SN32
+#CC_PSYQ_46      := $(WINE) $(TOOLS_DIR)/psyq/4.6/CC1PSX.EXE # 2.95
+CC              := $(TOOLS_DIR)/psyq/281/CC1PSX # Native 2.8.1 / 4.3
 SPLAT           := $(PYTHON) $(TOOLS_DIR)/splat/split.py
 EXTRACT			:= $(TOOLS_DIR)/extractDisk.sh
 MASPSX_DIR      := $(TOOLS_DIR)/maspsx
@@ -108,24 +107,20 @@ default: all
 
 all: dirs $(TARGET_BOOT) $(TARGET_BODYPROG) $(TARGET_B_KONAMI) $(TARGET_STREAM) check
 
-check: $(TARGET_BOOT)
-	cat $(ROM_DIR)/sha1/$(MAIN_NAME).sha1
-	sha1sum $(TARGET_BOOT)
-	cat $(ROM_DIR)/sha1/$(OVERLAY_BODYPROG_NAME).sha1
-	sha1sum $(TARGET_BODYPROG)
-	cat $(ROM_DIR)/sha1/$(OVERLAY_B_KONAMI_NAME).sha1
-	sha1sum $(TARGET_B_KONAMI)
-	cat $(ROM_DIR)/sha1/$(OVERLAY_STREAM_NAME).sha1
-	sha1sum $(TARGET_STREAM)
+check: dirs $(TARGET_BOOT) $(TARGET_BODYPROG) $(TARGET_B_KONAMI) $(TARGET_STREAM)
+	sha1sum --check $(ROM_DIR)/sha1/$(MAIN_NAME).sha1
+	sha1sum --check $(ROM_DIR)/sha1/$(OVERLAY_BODYPROG_NAME).sha1
+	sha1sum --check $(ROM_DIR)/sha1/$(OVERLAY_B_KONAMI_NAME).sha1
+	sha1sum --check $(ROM_DIR)/sha1/$(OVERLAY_STREAM_NAME).sha1
 
 extract:
 	$(EXTRACT) $(GAME_NAME) $(IMAGE_DIR) $(ROM_DIR) $(ASSETS_DIR)
 
 generate:
-	$(SPLAT) $(MAIN_NAME).yaml
-	$(SPLAT) $(OVERLAY_BODYPROG_NAME).yaml
-	$(SPLAT) $(OVERLAY_B_KONAMI_NAME).yaml
-	$(SPLAT) $(OVERLAY_STREAM_NAME).yaml
+	$(SPLAT) config/$(MAIN_NAME).yaml
+	$(SPLAT) config/$(OVERLAY_BODYPROG_NAME).yaml
+	$(SPLAT) config/$(OVERLAY_B_KONAMI_NAME).yaml
+	$(SPLAT) config/$(OVERLAY_STREAM_NAME).yaml
 
 dirs:
 	$(foreach dir,$(ASM_DIRS_ALL) $(C_DIRS_ALL) $(BIN_DIRS_ALL),$(shell mkdir -p $(BUILD_DIR)/$(dir)))

@@ -1,0 +1,234 @@
+name: BODYPROG
+sha1: eb118537b0c3c1e5cccfa2c5d283b3119c5ec7a3
+options:
+  basename: BODYPROG.BIN
+  target_path: assets/1ST/BODYPROG.BIN
+  base_path: ..
+  platform: psx
+  compiler: GCC
+
+  asm_path: asm/bodyprog
+  asset_path: assets/bodyprog
+  src_path: src/bodyprog
+
+  ld_script_path: linker/BODYPROG.BIN.ld
+
+  find_file_boundaries: False
+  gp_value: 0x80022BB0
+
+  use_legacy_include_asm: False
+
+  section_order: [".rodata", ".text", ".data", ".bss"]
+
+  symbol_addrs_path:
+    - meta/symbol_addresses.main.txt
+    - meta/symbol_addresses.bodyprog.txt
+  reloc_addrs_path: meta/reloc_addrs.bodyprog.txt
+  undefined_funcs_auto_path: meta/undefined_functions_auto.bodyprog.txt
+  undefined_syms_auto_path: meta/undefined_symbols_auto.bodyprog.txt
+
+  extensions_path: tools/splat_ext
+
+  subalign: 4
+
+  string_encoding: ASCII
+  data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
+rom:
+  path: rom/image
+  extraction_path: rom
+segments:
+  - name: bodyprog
+    type: code
+    start: 0
+    vram: 0x80024B60
+    subalign: 4
+    align: 4
+    subsegments:
+      - [0x0, rodata]
+      - [0x9ad0, c, overlay_bodyprog]
+      - [0x1b4ec, c, view/vc_util]
+      - [0x1bf04, c, overlay_bodyprog_80040A64]
+      - [0x23ed8, c, view/vw_main]
+      - [0x243c8, c, view/vw_calc] # contains part of vb_main?
+      - [0x25d1c, c, overlay_bodyprog_8004A87C]
+      - [0x5bde0, c, view/vc_main]
+      - [0x61218, c, overlay_bodyprog_80085D78]
+      - [0x6cf9c, c, psxsdk/libapi/a09]
+      - [0x6cfac, c, psxsdk/libapi/a11]
+      - [0x6cfbc, c, psxsdk/libapi/a39]
+      - [0x6cfcc, c, psxsdk/libapi/a51]
+      - [0x6cfdc, c, psxsdk/libapi/a53]
+      - [0x6cfec, c, psxsdk/libapi/a65]
+      - [0x6cffc, c, psxsdk/libapi/a67]
+      - [0x6d00c, c, psxsdk/libapi/a68]
+      - [0x6d01c, c, psxsdk/libapi/a69]
+      - [0x6d02c, c, psxsdk/libapi/a81]
+      - [0x6d03c, c, psxsdk/libapi/first]
+      - [0x6d2dc, c, psxsdk/libc/a66]
+      - [0x6d2ec, c, psxsdk/libc/a56]
+      - [0x6d2fc, c, psxsdk/libc/c24]
+      - [0x6d30c, c, psxsdk/libc/c25]
+      - [0x6d31c, c, psxsdk/libc/c26]
+      - [0x6d32c, c, psxsdk/libc/c27]
+      - [0x6d33c, c, psxsdk/libc/c37]
+      - [0x6d34c, c, psxsdk/libc/memcmp]
+      - [0x6d39c, c, psxsdk/libcard/c171]
+      - [0x6d3ac, c, psxsdk/libcard/c172]
+      - [0x6d3bc, c, psxsdk/libcard/a78]
+      - [0x6d3cc, c, psxsdk/libcard/a80]
+      - [0x6d3dc, c, psxsdk/libcard/card]
+      - [0x6d41c, c, psxsdk/libcard/init]
+      - [0x6d4ec, c, psxsdk/libapi/pad]
+      - [0x6d7ec, c, psxsdk/libapi/a18]
+      - [0x6d7fc, c, psxsdk/libapi/a19]
+      - [0x6d80c, c, psxsdk/libapi/a20]
+      - [0x6d81c, c, psxsdk/libapi/a21]
+      - [0x6d82c, c, psxsdk/libapi/l02]
+      - [0x6d83c, c, psxsdk/libapi/l03]
+      - [0x6d84c, c, psxsdk/libapi/patch]
+      - [0x6d8ec, c, psxsdk/libapi/c68]
+      - [0x6d8fc, c, psxsdk/libapi/chclrpad]
+      - [0x6d96c, c, psxsdk/libcard/a74]
+      - [0x6d97c, c, psxsdk/libcard/a75]
+      - [0x6d98c, c, psxsdk/libcard/a76]
+      - [0x6d99c, c, psxsdk/libcard/patch]
+      - [0x6db6c, c, psxsdk/libcard/end]
+      - [0x6dbec, c, psxsdk/libcd/cdrom]
+      - [0x6dc1c, c, psxsdk/libcd/iso9660]
+      - [0x6e58c, c, psxsdk/libcd/cdread2]
+      - [0x6e63c, c, psxsdk/libcd/c_002]
+      - [0x6e69c, c, psxsdk/libcd/c_003]
+      - [0x6e71c, c, psxsdk/libcd/c_004]
+      - [0x6e80c, c, psxsdk/libcd/c_005]
+      - [0x6e89c, c, psxsdk/libcd/c_007]
+      - [0x6e94c, c, psxsdk/libcd/c_008]
+      - [0x6e98c, c, psxsdk/libcd/c_009]
+      - [0x6ea4c, c, psxsdk/libcd/c_010]
+      - [0x6ea6c, c, psxsdk/libcd/c_011]
+      - [0x6f55c, c, psxsdk/libgpu/e00]
+      - [0x6f644, c, psxsdk/libgpu/e01]
+      - [0x6f6a8, c, psxsdk/libgpu/e02]
+      - [0x6f70c, c, psxsdk/libgpu/e03]
+      - [0x6f7c0, c, psxsdk/libgpu/e04]
+      - [0x6f7fc, c, psxsdk/libgpu/p00]
+      - [0x6f83c, c, psxsdk/libgpu/p01]
+      - [0x6f85c, c, psxsdk/libgpu/p06]
+      - [0x6f89c, c, psxsdk/libgpu/p09]
+      - [0x6f8bc, c, psxsdk/libgpu/p14]
+      - [0x6f8dc, c, psxsdk/libgpu/p16]
+      - [0x6f8fc, c, psxsdk/libgpu/p17]
+      - [0x6f91c, c, psxsdk/libgpu/p18]
+      - [0x6f93c, c, psxsdk/libgpu/p26]
+      - [0x6f95c, c, psxsdk/libgpu/p33]
+      - [0x6f98c, c, psxsdk/libgpu/p34]
+      - [0x6f9ec, c, psxsdk/libgs/2d_sp1]
+      - [0x6fb6c, c, psxsdk/libgs/gs_001]
+      - [0x700bc, c, psxsdk/libgs/gs_002]
+      - [0x701dc, c, psxsdk/libgs/gs_003]
+      - [0x7025c, c, psxsdk/libgs/gs_007]
+      - [0x7029c, c, psxsdk/libapi/counter]
+      - [0x7040c, c, psxsdk/libgs/gs_008]
+      - [0x7043c, c, psxsdk/libgs/gs_009]
+      - [0x7046c, c, psxsdk/libgs/gs_010]
+      - [0x7051c, c, psxsdk/libgs/matrix]
+      - [0x708dc, c, psxsdk/libgs/gs_104]
+      - [0x7095c, c, psxsdk/libgs/gs_105]
+      - [0x709cc, c, psxsdk/libgs/gs_106]
+      - [0x709ec, c, psxsdk/libgs/gs_107]
+      - [0x70f5c, c, psxsdk/libgs/gs_108]
+      - [0x70fdc, c, psxsdk/libgs/gs_110]
+      - [0x7100c, c, psxsdk/libgs/gs_111]
+      - [0x7103c, c, psxsdk/libgs/gs_113]
+      - [0x7109c, c, psxsdk/libgs/gs_114]
+      - [0x7115c, c, psxsdk/libgs/gs_121]
+      - [0x711ac, c, psxsdk/libgs/gs_123]
+      - [0x7127c, c, psxsdk/libgs/gs_127]
+      - [0x712fc, c, psxsdk/libgs/objt]
+      - [0x7148c, c, psxsdk/libgs/objt3]
+      - [0x71d1c, c, lib_8009687C] # konami custom RotMatrix functions? fewer branches & different GTE insns compared to PSX SDK versions
+      - [0x72368, c, psxsdk/libgte/msc00]
+      - [0x723f8, c, psxsdk/libgte/msc01]
+      - [0x72488, c, psxsdk/libgte/msc02]
+      - [0x72738, c, psxsdk/libgte/msc06]
+      - [0x729c8, c, psxsdk/libgte/msc09]
+      - [0x72a68, c, psxsdk/libgte/mtx_000]
+      - [0x72b78, c, psxsdk/libgte/mtx_001]
+      - [0x72c68, c, psxsdk/libgte/mtx_003]
+      - [0x72dc8, c, psxsdk/libgte/mtx_004]
+      - [0x72f28, c, psxsdk/libgte/mtx_005]
+      - [0x72f58, c, psxsdk/libgte/mtx_006]
+      - [0x730a8, c, psxsdk/libgte/mtx_007]
+      - [0x730f8, c, psxsdk/libgte/mtx_01]
+      - [0x73238, c, psxsdk/libgte/mtx_02]
+      - [0x73328, c, psxsdk/libgte/mtx_03]
+      - [0x73438, c, psxsdk/libgte/mtx_04]
+      - [0x73548, c, psxsdk/libgte/mtx_05]
+      - [0x73598, c, psxsdk/libgte/mtx_06]
+      - [0x735f8, c, psxsdk/libgte/mtx_07]
+      - [0x73628, c, psxsdk/libgte/mtx_08]
+      - [0x73768, c, psxsdk/libgte/mtx_09]
+      - [0x73798, c, psxsdk/libgte/mtx_10]
+      - [0x737c8, c, psxsdk/libgte/mtx_11]
+      - [0x737f8, c, psxsdk/libgte/mtx_12]
+      - [0x73818, c, psxsdk/libgte/reg08]
+      - [0x73838, c, psxsdk/libgte/reg09]
+      - [0x73848, c, psxsdk/libgte/reg10]
+      - [0x73868, c, psxsdk/libgte/reg11]
+      - [0x73888, c, psxsdk/libgte/reg12]
+      - [0x738a8, c, psxsdk/libgte/reg13]
+      - [0x738b8, c, psxsdk/libgte/smp]
+      - [0x73a98, c, psxsdk/libgte/smp_00]
+      - [0x73ca8, c, psxsdk/libgte/smp_02]
+      - [0x73cd8, c, psxsdk/libgte/smp_03]
+      - [0x73d38, c, psxsdk/libgte/smp_04]
+      - [0x73d68, c, psxsdk/libgte/cmb_00]
+      - [0x73de8, c, psxsdk/libgte/fgo_00]
+      - [0x73e28, c, psxsdk/libgte/g3]
+      - [0x743d8, c, psxsdk/libgte/g4]
+      - [0x74a98, c, psxsdk/libgte/gt3]
+      - [0x750d8, c, psxsdk/libgte/gt4]
+      - [0x75848, c, psxsdk/libgte/ratan]
+      - [0x759c8, c, psxsdk/libgte/patchgte]
+      - [0x75aa8, c, psxsdk/libpad/padentry]
+      - [0x75f58, c, psxsdk/libpad/padmain]
+      - [0x76c58, c, psxsdk/libpad/padcmd]
+      - [0x775b8, c, psxsdk/libpad/padif]
+      - [0x77ba8, c, psxsdk/libpad/padportd]
+      - [0x78208, c, psxsdk/libpad/padseqd]
+      - [0x78698, c, psxsdk/libpad/waitrc2]
+      - [0x78758, c, psxsdk/libspu/s_crwa]
+      - [0x788f8, c, psxsdk/libapi/a10]
+      - [0x78908, c, psxsdk/libspu/s_m_util]
+      - [0x78a18, c, psxsdk/libspu/s_stm]
+      - [0x78a48, c, psxsdk/libspu/s_sva]
+      - [0x79048, c, psxsdk/libspu/s_n2p]
+      - [0x79248, c, psxsdk/libspu/s_gva]
+      - [0x79638, c, lib_8009E198]
+      # libsd filenames likely aren't accurate since konami rally symbols didn't include object names
+      # (maybe libsd was built from source code for libsnd? maybe can take obj names from that)
+      - [0x7a244, c, libsd/sdmain]
+      - [0x7d734, c, libsd/ssmain]
+      - [0x7d7fc, c, psxsdk/libspu/s_q]
+      - [0x7d87c, c, psxsdk/libapi/a13]
+      - [0x7d88c, c, psxsdk/libspu/s_m_init]
+      - [0x7d8ec, c, psxsdk/libspu/s_sr]
+      - [0x7d9bc, c, psxsdk/libspu/s_srmp]
+      - [0x7de9c, c, psxsdk/libspu/s_sra]
+      - [0x7e36c, c, psxsdk/libspu/s_rrwa]
+      - [0x7e3bc, c, psxsdk/libspu/s_srv]
+      - [0x7e3ec, c, psxsdk/libspu/s_sav]
+      - [0x7e6ac, c, psxsdk/libspu/s_sk]
+      - [0x7e86c, c, psxsdk/libspu/s_gks]
+      - [0x7e8fc, c, psxsdk/libspu/s_skowa]
+      - [0x7e92c, c, psxsdk/libspu/s_w]
+      - [0x7e98c, c, psxsdk/libspu/s_stsa]
+      - [0x7e9ec, c, psxsdk/libspu/s_itc]
+      - [0x7ea9c, c, psxsdk/libspu/s_sca]
+      - [0x7ee1c, c, libsd/sdmidi]
+      - [0x82158, c, psxsdk/libspu/s_grv]
+      - [0x82188, c, psxsdk/libspu/s_gav]
+      - [0x821b8, c, libsd/sdmidi2]
+      - [0x84238, data, overlay_bodyprog]
+  - [0xA4B00]
