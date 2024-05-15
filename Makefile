@@ -112,6 +112,11 @@ check: dirs $(TARGET_BOOT) $(TARGET_BODYPROG) $(TARGET_B_KONAMI) $(TARGET_STREAM
 	sha1sum --check $(ROM_DIR)/sha1/$(OVERLAY_BODYPROG_NAME).sha1
 	sha1sum --check $(ROM_DIR)/sha1/$(OVERLAY_B_KONAMI_NAME).sha1
 	sha1sum --check $(ROM_DIR)/sha1/$(OVERLAY_STREAM_NAME).sha1
+	# No errors from the above, copying build results into expected folder
+	cp -r build/src expected/build/src
+	cp -r build/asm expected/build/asm
+	# Future function changes can be diffed via
+	#  python3 tools/asm-differ/diff.py -mwo --overlay bodyprog vcRetRoadUsePriority
 
 extract:
 	$(EXTRACT) $(GAME_NAME) $(IMAGE_DIR) $(ROM_DIR) $(ASSETS_DIR)
@@ -124,6 +129,7 @@ generate:
 
 dirs:
 	$(foreach dir,$(ASM_DIRS_ALL) $(C_DIRS_ALL) $(BIN_DIRS_ALL),$(shell mkdir -p $(BUILD_DIR)/$(dir)))
+	$(shell mkdir -p expected/build)
 
 clean:
 	rm -rf $(BUILD_DIR)
