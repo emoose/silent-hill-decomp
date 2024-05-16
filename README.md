@@ -41,47 +41,29 @@ Run `make setup` to extract needed assets/code from the bin, if that succeeds, r
 Once build has finished a folder will be produced with the name `build`, inside this, you will find the output.
 
 ## Contributing
-Contributions are welcome. If you would like to reserve a function, open a PR with the function or file name(s).
+Contributions are welcome, please read over the contents of [docs/](docs/) beforehand to learn the conventions used in this project.
 
-### Naming Conventions
-If a name is already known (eg. from some kind of SDK library or symbols of another title) that name should be used, but guesses for names should try to follow the conventions below.
+If you would like to reserve a function, open a PR with the function or file name(s).
 
-#### Functions
-Function names should be written in CamelCase, and try to follow the format:
+### Useful scripts
 
-`[SystemName]_[Noun][Verb]_[FunctionAddress]`
+#### asm-differ
+Before making changes it's recommended to build a clean version of the current matching code, the makefile will then copy the results of this build over to the `expected` directory.
 
-For example:
+This will allow `asm-differ` to be able to compare any future changes against the known-matching version for you.
 
-`Demo_GameGlobalsUpdate_8008F1A0`  
-`FS_FileRead_80010F68`
+While asm-differ is running it can also auto-build changes to the function, giving you a live view of how close it currently matches.
 
-This format allows us to easily sort functions alphabetically and have related functions kept grouped together.
+`asm-differ` can be ran by passing an overlay & function name over to it, eg:
 
-The function address is included to make looking it up in the binary take slightly less steps, though may be removed if the project is ever made shiftable.
+`python3 tools/asm-differ/diff.py -mwo --overlay bodyprog vcRetMaxTgtMvXzLen`
 
-#### Globals
-Global variables should try using the same form as functions, but the address is optional for the benefit of keeping code tidier.
+#### decompile.py
+The decompile.py script (from [sotn-decomp project](https://github.com/Xeeynamo/sotn-decomp)) can try to decompile a function for you using m2c and m2ctx, automatically inserting it into the functions .c file.
 
-#### Structures
-Structures should have fields written in snake_case, with the field offset appended to it - keeping the offset as part of the name will allow us to more easily notice if the fields have moved around.
+The script will tell you whether the decompiled function matches or not, for trivial functions it may be able to match straight away, usually it will need some massaging though.  
+(eg. by adding structures or prototypes of functions called by it into header files beforehand)
 
-For example:
+`decompile.py` can be ran by just passing a function name over to it, eg:
 
-`int frame_counter_1C;`
-
-Fields that are known to be accessed but without a known purpose should just be named `field_XYZ`, while fields that are completely unknown/padding bytes should be named as `unk_XYZ`.
-
-Structures themselves should be named according to their usage, but if the usage isn't totally understood (or seems to be used for multiple things) then naming as `s_[GlobalAddress]` can be used if the structure is held at a static address.
-
-## Contemporaries
-Konami games from the same timeframe may share code with SH, could be worth digging through prototypes/alternate releases:
--  **Tokimeki Memorial \~forever with you\~**: has partial debug symbols which unfortunately don't match its executable, making any comparisons a bit harder.
--  **beatmania APPEND 5thMIX**: partial source available, uses similar movie player code but doesn't appear to share much else, contains a Konami `SD` sound library that's completely different to the one used in SH.
--  **Pachinko Dream**: source available, doesn't appear to share much (if anything) with SH, but seems to employ similar "SYS_W" structures holding things like current game state index.
--  **International Track & Field** / **ITF2000**: SH contains unused graphics from it & seems to share very similar overlay/data handling code, likely has more in common too.
--  **Konami International Rally Racing**: unreleased game that contains MAP/SYM symbols, shares the same `SD` sound library as SH (albeit a slightly different version)
--  **ESPN International Track & Field (PS2)**: sequel of ITF2000 with debug symbols available, seems to mostly be a C++ codebase, maybe a rewrite, or a completely different engine.
--  **Silent Hill 2 (PS2)**: the sequel, prototypes are available with debug symbols but doesn't appear to share much in common with SH1, though shared dev team members could mean similar code conventions within.
-
-(there are many other Konami games that could share code too - they released a *lot* during the PSX/PS2 era - any Konami prototype releases may be useful to look through!)
+`python3 tools/decompile.py vcRetMaxTgtMvXzLen`
