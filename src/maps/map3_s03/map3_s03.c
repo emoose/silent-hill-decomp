@@ -143,7 +143,51 @@ INCLUDE_ASM("asm/maps/map3_s03/nonmatchings/map3_s03", func_800CFDD4);
 
 INCLUDE_ASM("asm/maps/map3_s03/nonmatchings/map3_s03", func_800D0110);
 
-INCLUDE_ASM("asm/maps/map3_s03/nonmatchings/map3_s03", sharedFunc_800D01D0_3_s03);
+void sharedFunc_800D01D0_3_s03(s_SubCharacter* arg0)
+{
+    switch (arg0->model_0.field_2)
+    {
+    case 1:
+        func_800CE3CC(arg0);
+        break;
+    case 2:
+        func_800CE500(arg0);
+        break;
+    case 3:
+        func_800CE5E4(arg0, 1);
+        break;
+    case 4:
+        func_800CE5E4(arg0, 0);
+        break;
+    case 5:
+        func_800CEA64(arg0);
+        break;
+    case 6:
+        func_800CEB90(arg0, 0);
+        break;
+    case 7:
+        func_800CEB90(arg0, 1);
+        break;
+    case 8:
+        func_800CEC88(arg0);
+        break;
+    case 9:
+        func_800CF3AC(arg0);
+        break;
+    case 10:
+        func_800CFD18(arg0);
+        break;
+    case 11:
+        func_800CFDD4(arg0);
+        break;
+    case 12:
+        func_800CF9F8(arg0);
+        break;
+    case 13:
+        func_800D0110(arg0);
+        break;
+    }
+}
 
 INCLUDE_ASM("asm/maps/map3_s03/nonmatchings/map3_s03", sharedFunc_800D02E4_3_s03);
 

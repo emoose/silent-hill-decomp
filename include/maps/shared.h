@@ -106,4 +106,17 @@ void sharedFunc_800D0828_3_s03(s_SubCharacter*, s32);
 void sharedFunc_800D0968_3_s03(s_SubCharacter*, s32);
 void sharedFunc_800CDAB8_3_s03(s_SubCharacter* chara, s32 arg1, s32 arg2);
 
+//MAP3_S03 todo: share
+void func_800CE3CC(s_SubCharacter*);                                  /* extern */
+void func_800CE500(s_SubCharacter*);                                  /* extern */
+void func_800CE5E4(s_SubCharacter*, s32);                                 /* extern */
+void func_800CEA64(s_SubCharacter*);                                  /* extern */
+void func_800CEB90(s_SubCharacter*, s32);                                 /* extern */
+void func_800CEC88(s_SubCharacter*);                                  /* extern */
+void func_800CF3AC(s_SubCharacter*);                                  /* extern */
+void func_800CF9F8(s_SubCharacter*);                                  /* extern */
+void func_800CFD18(s_SubCharacter*);                                  /* extern */
+void func_800CFDD4(s_SubCharacter*);                                  /* extern */
+void func_800D0110(s_SubCharacter*);                                  /* extern */
+
 #endif
