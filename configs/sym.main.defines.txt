@@ -1,0 +1,28 @@
+// splat doesn't count these as defined for some reason, so they end up in undefined_funcs_auto.main.txt, causing the linker to skip linking them from library.
+// We can't add "defined:true" to sym.main.txt since other overlays also include that, and those need them inside their undefined_funcs_auto file to link properly.
+open = 0x800121DC; // defined:true allow_duplicated:True
+read = 0x800121EC; // defined:true allow_duplicated:True
+close = 0x800121FC; // defined:true allow_duplicated:True
+strcat = 0x8001222C; // defined:true allow_duplicated:True
+bzero = 0x8001224C; // defined:true allow_duplicated:True
+SpuInit = 0x8001226C; // defined:true allow_duplicated:True
+InitHeap = 0x800130FC; // defined:true allow_duplicated:True
+VSync = 0x8001310C; // defined:true allow_duplicated:True
+ResetCallback = 0x8001335C; // defined:true allow_duplicated:True
+CdInit = 0x80013E6C; // defined:true allow_duplicated:True
+CdReset = 0x80013FF8; // defined:true allow_duplicated:True
+CdSync = 0x80014100; // defined:true allow_duplicated:True
+CdControl = 0x80014168; // defined:true allow_duplicated:True
+CdIntToPos = 0x800145C8; // defined:true allow_duplicated:True
+CdRead = 0x800165AC; // defined:true allow_duplicated:True
+CdReadSync = 0x80016748; // defined:true allow_duplicated:True
+OpenTIM = 0x8001687C; // defined:true allow_duplicated:True
+ReadTIM = 0x8001688C; // defined:true allow_duplicated:True
+ResetGraph = 0x800180FC; // defined:true allow_duplicated:True
+SetDispMask = 0x800183E0; // defined:true allow_duplicated:True
+DrawSync = 0x80018478; // defined:true allow_duplicated:True
+ClearImage2 = 0x8001868C; // defined:true allow_duplicated:True
+LoadImage = 0x80018724; // defined:true allow_duplicated:True
+DrawPrim = 0x80018A10; // defined:true allow_duplicated:True
+PutDrawEnv = 0x80018ADC; // defined:true allow_duplicated:True
+PutDispEnv = 0x80018CA8; // defined:true allow_duplicated:True

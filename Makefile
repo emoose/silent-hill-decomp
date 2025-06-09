@@ -136,7 +136,9 @@ $2.elf: $(call gen_o_files, $1)
 		-T $(LINKER_DIR)/$1.ld \
 		-T $(LINKER_DIR)/$(filter-out ./,$(dir $1))undefined_syms_auto.$(notdir $1).txt \
 		-T $(LINKER_DIR)/$(filter-out ./,$(dir $1))undefined_funcs_auto.$(notdir $1).txt \
-		-o $$@
+		-T configs/lib_externs.ld \
+		-o $$@ \
+		lib/libspu.a lib/libetc.a lib/libcd.a lib/libgpu.a lib/libapi.a lib/libc.a
 endef
 
 endif
