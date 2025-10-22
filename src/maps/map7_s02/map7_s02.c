@@ -165,15 +165,7 @@ INCLUDE_ASM("asm/maps/map7_s02/nonmatchings/map7_s02", sharedFunc_800D0F28_3_s03
 
 #include "maps/shared/Ai_Dahlia_Init.h" // 0x800D7A20
 
-#include "maps/shared/Ai_GhostChildAlessa_Update.h" // 0x800D7A68
-
-#include "maps/shared/sharedFunc_800D4A2C_7_s01.h" // 0x800D7ADC
-
-#include "maps/shared/sharedFunc_800D4A74_7_s01.h" // 0x800D7B24
-
-#include "maps/shared/sharedFunc_800D4C0C_7_s01.h" // 0x800D7CBC
-
-#include "maps/shared/Ai_GhostChildAlessa_Init.h" // 0x800D7E88
+#include "maps/shared/charas/GhostChildAlessa.h"
 
 #include "maps/shared/Ai_Kaufmann_Update.h" // 0x800D7EAC
 
