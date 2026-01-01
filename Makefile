@@ -8,6 +8,11 @@ CHECKSUM       ?= 1
 NON_MATCHING   ?= 0
 SKIP_ASM       ?= 0
 
+# Enable two-pass linking for overlays with circular symbol dependencies.
+# First pass links targets as bootstrap ELFs using default symbol addresses.
+# Second pass re-links targets using symbol addresses extracted from bootstraps of dependencies.
+TWO_PASS_LINK ?= 0
+
 # Names and Paths
 #
 # Versions supported
@@ -52,6 +57,7 @@ LD      := $(CROSS)-ld
 OBJCOPY := $(CROSS)-objcopy
 OBJDUMP := $(CROSS)-objdump
 CPP     := $(CROSS)-cpp
+NM      := $(CROSS)-nm
 CC      := $(TOOLS_DIR)/gcc-2.8.1-psx/cc1
 CC272   := $(TOOLS_DIR)/gcc-2.7.2-cdk/cc1
 OBJDIFF := $(OBJDIFF_DIR)/objdiff
@@ -173,27 +179,50 @@ define make_elf_target
 
 ifeq ($(GAME_VERSION), USA)
 
-$2: $2.elf
-	$(OBJCOPY) $(OBJCOPY_FLAGS) $$< $$@
-ifneq (,$(filter $1,$(TARGET_POSTBUILD)))
-	-$(POSTBUILD) $1
-endif
-
-$2.elf: $(call gen_o_files, $1)
-	@mkdir -p $(dir $2)
+ifeq ($(TWO_PASS_LINK),1)
+# Build bootstrap elf using default external symbol addresses
+$(call get_target_out,$1).bootstrap.elf: $(call gen_o_files, $1)
+	@mkdir -p $$(dir $$@)
 	$(LD) $(LD_FLAGS) \
-		-Map $2.map \
+		-Map $(call get_target_out,$1).bootstrap.map \
 		-T $(LINKER_DIR)/$1.ld \
 		-T $(LINKER_DIR)/$(filter-out ./,$(dir $1))undefined_syms_auto.$(notdir $1).txt \
 		-T $(LINKER_DIR)/$(filter-out ./,$(dir $1))undefined_funcs_auto.$(notdir $1).txt \
 		-T $(CONFIG_DIR)/lib_externs.ld \
 		-o $$@
 
-#else GAME_VERSION
-else
+# Extract symbol addresses from dependencies into linker script
+$(call get_imported_syms_ld,$1): $(call get_dep_elfs,$1)
+	@mkdir -p $$(dir $$@)
+	@rm -f $$@
+	@echo "/* Auto-generated imported symbols for $(notdir $1) */" > $$@
+	@$(foreach dep,$(call get_deps_for_target,$1),\
+		$(NM) $(call get_target_out,$(dep)).bootstrap.elf 2>/dev/null | \
+		awk '/^[0-9a-fA-F]+ [TtWwDdBbRrSs] [^ ]+$$$$/ {print $$$$3 " = 0x" $$$$1 ";"}' >> $$@ || true;)
+	@if [ ! -s $$@ ] || [ $$$$(wc -l < $$@) -eq 1 ]; then echo "/* No symbols imported */" >> $$@; fi
+endif
 
+# Final ELF
+$2.elf: $(call gen_o_files, $1) $(if $(filter 1,$(TWO_PASS_LINK)),$(call get_imported_syms_ld,$1))
+	@mkdir -p $$(dir $$@)
+	$(LD) $(LD_FLAGS) \
+		-Map $2.map \
+		-T $(LINKER_DIR)/$1.ld \
+		-T $(LINKER_DIR)/$(filter-out ./,$(dir $1))undefined_syms_auto.$(notdir $1).txt \
+		-T $(LINKER_DIR)/$(filter-out ./,$(dir $1))undefined_funcs_auto.$(notdir $1).txt \
+		-T $(CONFIG_DIR)/lib_externs.ld \
+		$(if $(filter 1,$(TWO_PASS_LINK)),-T $(call get_imported_syms_ld,$1)) \
+		-o $$@
+
+# Final binary
 $2: $2.elf
 	$(OBJCOPY) $(OBJCOPY_FLAGS) $$< $$@
+ifneq (,$(filter $1,$(TARGET_POSTBUILD)))
+	-$(POSTBUILD) $1
+endif
+
+#else GAME_VERSION
+else
 
 $2.elf: $(call gen_o_files, $1)
 	@mkdir -p $(dir $2)
@@ -203,6 +232,9 @@ $2.elf: $(call gen_o_files, $1)
 		-T $(LINKER_DIR)/$(filter-out ./,$(dir $1))undefined_syms_auto.$(notdir $1).txt \
 		-T $(LINKER_DIR)/$(filter-out ./,$(dir $1))undefined_funcs_auto.$(notdir $1).txt \
 		-o $$@
+
+$2: $2.elf
+	$(OBJCOPY) $(OBJCOPY_FLAGS) $$< $$@
 
 #endif GAME_VERSION
 endif
@@ -285,7 +317,7 @@ TARGET_CRE_$(CRE)$(SCR)       := $(TARGET_SCREENS_SRC_DIR)/credits
 TARGET_OPT_$(OPT)$(SCR)       := $(TARGET_SCREENS_SRC_DIR)/options
 TARGET_SAV_$(SAV)$(SCR)       := $(TARGET_SCREENS_SRC_DIR)/saveload
 TARGET_FMV_$(FMV)$(STR)$(SCR) := $(TARGET_SCREENS_SRC_DIR)/stream
-TARGET_MAP_$(MAP)             := $(TARGET_MAPS)
+TARGET_MAP_$(MAP)             := TARGET_MAPS
 TARGET_M00_$(M00)$(M0X)       := $(TARGET_MAPS_SRC_DIR)/map0_s00
 TARGET_M01_$(M01)$(M0X)       := $(TARGET_MAPS_SRC_DIR)/map0_s01
 TARGET_M02_$(M02)$(M0X)       := $(TARGET_MAPS_SRC_DIR)/map0_s02
@@ -346,6 +378,71 @@ LD_FILES     := $(addsuffix .ld,$(addprefix $(LINKER_DIR)/,$(TARGET_IN)))
 # Recursively include any .d dependency files from previous builds.
 # Allowing Make to rebuild targets when any included headers/sources change.
 -include $(shell [ -d $(BUILD_DIR) ] && find $(BUILD_DIR) -name '*.d' || true)
+
+# Cross-overlay dependencies
+
+# Define which targets depend on symbols from other targets, to allow symbols from dependency to be added to linker script.
+# Format: target:dependency (one dependency per line)
+# Constructed based on which BUILD_ flags are enabled
+SYMBOL_DEPS :=
+
+# Main exe <-> bodyprog dependencies (two way)
+ifeq ($(BUILD_EXE)$(BUILD_ENGINE), 11)
+  SYMBOL_DEPS += main:bodyprog \
+                 bodyprog:main
+endif
+
+# Screens <-> Bodyprog dependencies (two way)
+ifeq ($(BUILD_ENGINE)$(BUILD_SCREENS), 11)
+  SYMBOL_DEPS += bodyprog:screens/stream \
+                 bodyprog:screens/b_konami \
+                 bodyprog:screens/credits \
+                 bodyprog:screens/options \
+                 bodyprog:screens/saveload \
+                 screens/stream:bodyprog \
+                 screens/b_konami:bodyprog \
+                 screens/credits:bodyprog \
+                 screens/options:bodyprog \
+                 screens/saveload:bodyprog
+endif
+
+# Screens -> main exe dependencies (one way)
+ifeq ($(BUILD_EXE)$(BUILD_SCREENS), 11)
+  SYMBOL_DEPS += screens/stream:main \
+                 screens/b_konami:main \
+                 screens/credits:main \
+                 screens/options:main \
+                 screens/saveload:main
+endif
+
+# Maps <-> bodyprog dependencies (two-way, but bodyprog only depends on MAP0_S00 to fetch header symbol)
+ifeq ($(BUILD_ENGINE)$(BUILD_MAPS), 11)
+  SYMBOL_DEPS += bodyprog:maps/map0_s00 \
+                 $(foreach map,$(patsubst maps/%,%,$(TARGET_MAPS)),maps/$(map):bodyprog)
+endif
+
+# Maps -> main exe dependencies
+ifeq ($(BUILD_EXE)$(BUILD_MAPS), 11)
+  SYMBOL_DEPS += $(foreach map,$(patsubst maps/%,%,$(TARGET_MAPS)),maps/$(map):main)
+endif
+
+# Helper function to get dependencies for a target
+define get_deps_for_target
+$(strip $(foreach pair,$(SYMBOL_DEPS),\
+	$(if $(filter $1:%,$(pair)),\
+		$(lastword $(subst :, ,$(pair))))))
+endef
+
+# Helper function to get the bootstrap .elf file for a dependency
+define get_dep_elfs
+$(foreach dep,$(call get_deps_for_target,$1),\
+	$(call get_target_out,$(dep)).bootstrap.elf)
+endef
+
+# Helper function to get the converted .ld file path
+define get_imported_syms_ld
+$(LINKER_DIR)/$(filter-out ./,$(dir $1))imported_syms.$(notdir $1).ld
+endef
 
 # Rules
 
